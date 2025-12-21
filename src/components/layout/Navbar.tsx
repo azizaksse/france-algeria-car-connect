@@ -34,10 +34,10 @@ const Navbar = () => {
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
         isScrolled
-          ? 'bg-background/95 backdrop-blur-md shadow-soft'
-          : 'bg-transparent'
+          ? 'bg-background/70 backdrop-blur-xl shadow-lg border-b border-border/50'
+          : 'bg-background/20 backdrop-blur-sm'
       )}
     >
       <nav className="container-custom">
@@ -47,10 +47,7 @@ const Navbar = () => {
             <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
               <CarFront className="w-6 h-6 text-accent-foreground" />
             </div>
-            <span className={cn(
-              "font-heading font-bold text-xl transition-colors",
-              isScrolled ? "text-foreground" : "text-primary-foreground"
-            )}>
+            <span className="font-heading font-bold text-xl text-foreground">
               AA AUTO <span className="text-accent">EXPORT</span>
             </span>
           </Link>
@@ -65,9 +62,7 @@ const Navbar = () => {
                   'font-medium text-sm transition-colors relative group',
                   location.pathname === link.href
                     ? 'text-accent'
-                    : isScrolled
-                    ? 'text-foreground/80 hover:text-foreground'
-                    : 'text-primary-foreground/80 hover:text-primary-foreground'
+                    : 'text-foreground/80 hover:text-foreground'
                 )}
               >
                 {link.label}
@@ -80,12 +75,7 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center gap-4">
             <button
               onClick={toggleLanguage}
-              className={cn(
-                'flex items-center gap-2 px-3 py-2 rounded-lg transition-colors',
-                isScrolled
-                  ? 'text-foreground hover:bg-secondary'
-                  : 'text-primary-foreground hover:bg-primary-foreground/10'
-              )}
+              className="flex items-center gap-2 px-3 py-2 rounded-lg transition-colors text-foreground/80 hover:text-foreground hover:bg-foreground/10"
             >
               <Languages className="w-4 h-4" />
               <span className="text-sm font-medium">{language === 'fr' ? 'العربية' : 'Français'}</span>
@@ -98,10 +88,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={cn(
-              'lg:hidden p-2 rounded-lg transition-colors',
-              isScrolled ? 'text-foreground' : 'text-primary-foreground'
-            )}
+            className="lg:hidden p-2 rounded-lg transition-colors text-foreground"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
