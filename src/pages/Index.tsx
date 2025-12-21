@@ -17,8 +17,8 @@ const Index = () => {
       <Helmet>
         <title>
           {language === 'fr'
-            ? 'AutoExportDZ - Export de véhicules France vers Algérie'
-            : 'AutoExportDZ - تصدير السيارات من فرنسا إلى الجزائر'}
+            ? 'AA AUTO EXPORT - Export de véhicules France vers Algérie'
+            : 'AA AUTO EXPORT - تصدير السيارات من فرنسا إلى الجزائر'}
         </title>
         <meta
           name="description"
