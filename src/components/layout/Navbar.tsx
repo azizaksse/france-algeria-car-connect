@@ -36,8 +36,8 @@ const Navbar = () => {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
         isScrolled
-          ? 'bg-background/70 backdrop-blur-xl shadow-lg border-b border-border/50'
-          : 'bg-background/20 backdrop-blur-sm'
+          ? 'bg-background/60 backdrop-blur-xl border-b border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.12),0_0_80px_rgba(212,175,55,0.08)]'
+          : 'bg-background/10 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.05)]'
       )}
     >
       <nav className="container-custom">
