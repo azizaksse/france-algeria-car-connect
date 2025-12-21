@@ -11,7 +11,7 @@ const ContactSection = () => {
 
   const contactItems = [
     { icon: Phone, label: t.contact.phone, value: '+33 7 80 78 36 10', href: 'tel:+33780783610' },
-    { icon: MessageCircle, label: t.contact.whatsapp, value: '+33 7 80 78 36 10', href: 'https://wa.me/33780783610' },
+    { icon: MessageCircle, label: t.contact.whatsapp, value: '+33 7 48 42 43 75', href: 'https://wa.me/33748424375' },
     { icon: Mail, label: t.contact.email, value: 'contact@aaautoexport.com', href: 'mailto:contact@aaautoexport.com' },
     { icon: MapPin, label: t.contact.address, value: 'Paris, France', href: 'https://maps.app.goo.gl/bmsZZZa5o2wLAzDb8' },
   ];
