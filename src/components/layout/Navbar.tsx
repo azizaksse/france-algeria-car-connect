@@ -35,7 +35,7 @@ const Navbar = () => {
     <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-4">
       <nav
         className={cn(
-          'container-custom transition-all duration-500 rounded-2xl',
+          'container-custom transition-all duration-500 rounded-full',
           isScrolled
             ? 'bg-white/90 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-border/30'
             : 'bg-white/70 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-white/50'
@@ -53,13 +53,13 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-1 bg-secondary/50 rounded-xl p-1">
+          <div className="hidden lg:flex items-center gap-1 bg-secondary/50 rounded-full p-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
                 className={cn(
-                  'font-medium text-sm px-4 py-2 rounded-lg transition-all duration-300',
+                  'font-medium text-sm px-4 py-2 rounded-full transition-all duration-300',
                   location.pathname === link.href
                     ? 'bg-primary text-primary-foreground shadow-sm'
                     : 'text-foreground/70 hover:text-foreground hover:bg-secondary'
@@ -74,12 +74,12 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center gap-3">
             <button
               onClick={toggleLanguage}
-              className="flex items-center gap-2 px-3 py-2 rounded-xl text-foreground/70 hover:text-foreground hover:bg-secondary transition-all duration-300"
+              className="flex items-center gap-2 px-4 py-2 rounded-full text-foreground/70 hover:text-foreground hover:bg-secondary transition-all duration-300"
             >
               <Languages className="w-4 h-4" />
               <span className="text-sm font-medium">{language === 'fr' ? 'العربية' : 'Français'}</span>
             </button>
-            <Button variant="accent" size="default" className="rounded-xl" asChild>
+            <Button variant="accent" size="default" className="rounded-full px-6" asChild>
               <Link to="/request">{t.nav.requestQuote}</Link>
             </Button>
           </div>
