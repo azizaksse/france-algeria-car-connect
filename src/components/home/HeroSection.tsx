@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ShieldCheck, Zap, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -8,6 +9,15 @@ import { cn } from '@/lib/utils';
 const HeroSection = () => {
   const { t, language } = useLanguage();
   const { ref, isInView } = useInView({ threshold: 0.1 });
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const stats = [
     { icon: ShieldCheck, value: '10+', label: language === 'fr' ? 'Ans d\'expertise' : 'سنوات من الخبرة' },
@@ -17,8 +27,11 @@ const HeroSection = () => {
 
   return (
     <section ref={ref} className="relative min-h-screen flex items-center bg-primary overflow-hidden">
-      {/* Video Background */}
-      <div className="absolute inset-0">
+      {/* Video Background with Parallax */}
+      <div 
+        className="absolute inset-0 will-change-transform"
+        style={{ transform: `translateY(${scrollY * 0.4}px) scale(1.1)` }}
+      >
         <video
           autoPlay
           loop
@@ -31,7 +44,10 @@ const HeroSection = () => {
       </div>
 
       {/* Dark Overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/70 via-primary/55 to-navy-light/60" />
+      <div 
+        className="absolute inset-0 bg-gradient-to-br from-primary/70 via-primary/55 to-navy-light/60"
+        style={{ transform: `translateY(${scrollY * 0.2}px)` }}
+      />
 
       {/* Content */}
       <div className="container-custom relative z-10 pt-20">
