@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { Check, Send, Loader2 } from 'lucide-react';
+import { CircleCheck, SendHorizonal, LoaderCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -77,7 +77,7 @@ const Request = () => {
             <div className="container-custom">
               <div className="max-w-lg mx-auto text-center animate-scale-in">
                 <div className="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Check className="w-10 h-10 text-accent" />
+                  <CircleCheck className="w-10 h-10 text-accent" />
                 </div>
                 <h1 className="font-heading text-3xl font-bold text-foreground mb-4">
                   {language === 'fr' ? 'Demande reçue !' : 'تم استلام الطلب!'}
@@ -236,12 +236,12 @@ const Request = () => {
                 >
                   {isSubmitting ? (
                     <>
-                      <Loader2 className="w-5 h-5 animate-spin" />
+                      <LoaderCircle className="w-5 h-5 animate-spin" />
                       <span>{language === 'fr' ? 'Envoi en cours...' : 'جاري الإرسال...'}</span>
                     </>
                   ) : (
                     <>
-                      <Send className="w-5 h-5" />
+                      <SendHorizonal className="w-5 h-5" />
                       <span>{t.form.submit}</span>
                     </>
                   )}

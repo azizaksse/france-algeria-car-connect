@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { Search, ShoppingCart, FileText, Truck, MapPin, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ScanSearch, ShoppingBag, ScrollText, Ship, Navigation, ArrowRight, CircleCheckBig } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Layout from '@/components/layout/Layout';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -11,11 +11,11 @@ const Services = () => {
   const { t, language } = useLanguage();
   const { ref, isInView } = useInView({ threshold: 0.1 });
 
-  const icons = [Search, ShoppingCart, FileText, Truck, MapPin];
+  const icons = [ScanSearch, ShoppingBag, ScrollText, Ship, Navigation];
 
   const detailedServices = [
     {
-      icon: Search,
+      icon: ScanSearch,
       titleFr: 'Recherche de véhicule',
       titleAr: 'البحث عن السيارة',
       descriptionFr: 'Nous trouvons le véhicule idéal selon vos critères et votre budget.',
@@ -34,7 +34,7 @@ const Services = () => {
       ],
     },
     {
-      icon: ShoppingCart,
+      icon: ShoppingBag,
       titleFr: 'Achat en France',
       titleAr: 'الشراء من فرنسا',
       descriptionFr: 'Négociation et achat sécurisé auprès de vendeurs vérifiés.',
@@ -53,7 +53,7 @@ const Services = () => {
       ],
     },
     {
-      icon: FileText,
+      icon: ScrollText,
       titleFr: 'Démarches administratives',
       titleAr: 'الإجراءات الإدارية',
       descriptionFr: 'Gestion complète des documents et formalités douanières.',
@@ -72,7 +72,7 @@ const Services = () => {
       ],
     },
     {
-      icon: Truck,
+      icon: Ship,
       titleFr: 'Transport & Export',
       titleAr: 'النقل والتصدير',
       descriptionFr: 'Logistique maritime et terrestre vers l\'Algérie.',
@@ -91,7 +91,7 @@ const Services = () => {
       ],
     },
     {
-      icon: MapPin,
+      icon: Navigation,
       titleFr: 'Livraison en Algérie',
       titleAr: 'التسليم في الجزائر',
       descriptionFr: 'Réception de votre véhicule dans la wilaya de votre choix.',
@@ -173,7 +173,7 @@ const Services = () => {
                       <ul className="space-y-3">
                         {(language === 'fr' ? service.featuresFr : service.featuresAr).map((feature, i) => (
                           <li key={i} className="flex items-center gap-3">
-                            <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
+                            <CircleCheckBig className="w-5 h-5 text-accent shrink-0" />
                             <span className="text-foreground">{feature}</span>
                           </li>
                         ))}

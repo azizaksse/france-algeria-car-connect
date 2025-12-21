@@ -1,4 +1,4 @@
-import { Globe, DollarSign, Users, ThumbsUp, MessageCircle } from 'lucide-react';
+import { Earth, Wallet, UsersRound, BadgeCheck, HeartHandshake } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useInView } from '@/hooks/useInView';
 import { cn } from '@/lib/utils';
@@ -7,7 +7,7 @@ const WhyUsSection = () => {
   const { t } = useLanguage();
   const { ref, isInView } = useInView({ threshold: 0.1 });
 
-  const icons = [Globe, DollarSign, Users, ThumbsUp, MessageCircle];
+  const icons = [Earth, Wallet, UsersRound, BadgeCheck, HeartHandshake];
 
   return (
     <section ref={ref} className="section-padding bg-secondary/30">
