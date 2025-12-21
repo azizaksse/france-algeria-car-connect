@@ -1,5 +1,18 @@
 import { Helmet } from 'react-helmet-async';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useContext } from 'react';
+import { Language } from '@/lib/i18n';
+
+// Safe hook that returns default if outside provider
+const useLanguageSafe = (): Language => {
+  try {
+    // Dynamic import to avoid circular dependency
+    const { useLanguage } = require('@/contexts/LanguageContext');
+    const { language } = useLanguage();
+    return language;
+  } catch {
+    return 'fr';
+  }
+};
 
 interface SEOProps {
   title?: string;
@@ -7,6 +20,7 @@ interface SEOProps {
   image?: string;
   url?: string;
   type?: 'website' | 'article';
+  lang?: Language;
 }
 
 const SEO = ({ 
@@ -14,9 +28,11 @@ const SEO = ({
   description, 
   image = '/og-image.jpg',
   url = 'https://aaautoexport.com',
-  type = 'website' 
+  type = 'website',
+  lang
 }: SEOProps) => {
-  const { language } = useLanguage();
+  const contextLanguage = useLanguageSafe();
+  const language = lang || contextLanguage;
 
   const defaultContent = {
     fr: {
