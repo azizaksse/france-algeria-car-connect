@@ -46,10 +46,10 @@ const HowItWorksSection = () => {
                 </div>
               )}
 
-              <div className="relative z-10 text-center">
+              <div className="relative z-10 text-center bg-primary-foreground/5 backdrop-blur-sm p-6 rounded-2xl border border-primary-foreground/10 shadow-glass transition-all duration-300 hover:shadow-glass-hover hover:-translate-y-1">
                 {/* Number */}
-                <div className="w-24 h-24 mx-auto mb-6 bg-accent/10 rounded-2xl flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-                  <span className="font-heading font-bold text-4xl text-accent">
+                <div className="w-20 h-20 mx-auto mb-6 bg-accent/10 rounded-2xl flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                  <span className="font-heading font-bold text-3xl text-accent">
                     {step.number}
                   </span>
                 </div>

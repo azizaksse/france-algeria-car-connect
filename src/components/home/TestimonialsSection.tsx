@@ -30,7 +30,7 @@ const TestimonialsSection = () => {
             <div
               key={testimonial.id}
               className={cn(
-                "bg-card p-8 rounded-2xl border border-border hover:border-accent/50 transition-all duration-500 hover:shadow-elevated relative",
+                "bg-card p-8 rounded-2xl border border-border/50 shadow-glass transition-all duration-500 hover:shadow-glass-hover hover:-translate-y-2 relative",
                 isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               )}
               style={{ transitionDelay: isInView ? `${index * 150}ms` : '0ms' }}

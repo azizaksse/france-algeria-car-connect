@@ -33,7 +33,7 @@ const ServicesSection = () => {
               <div
                 key={index}
                 className={cn(
-                  "group bg-card p-6 rounded-xl border border-border hover:border-accent/50 transition-all duration-500 hover:shadow-elevated hover:-translate-y-1",
+                  "group bg-card p-6 rounded-2xl border border-border/50 shadow-glass transition-all duration-500 hover:shadow-glass-hover hover:-translate-y-2",
                   isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 )}
                 style={{ transitionDelay: isInView ? `${index * 100}ms` : '0ms' }}

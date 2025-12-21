@@ -82,6 +82,9 @@ export default {
         'elevated': 'var(--shadow-lg)',
         'floating': 'var(--shadow-xl)',
         'glow': 'var(--shadow-glow)',
+        'glass': 'var(--shadow-glass)',
+        'glass-hover': 'var(--shadow-glass-hover)',
+        '3d': 'var(--shadow-3d)',
       },
       keyframes: {
         "accordion-down": {
