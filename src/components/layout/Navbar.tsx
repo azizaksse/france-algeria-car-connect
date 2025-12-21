@@ -32,55 +32,54 @@ const Navbar = () => {
   };
 
   return (
-    <header
-      className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
-        isScrolled
-          ? 'bg-background/60 backdrop-blur-xl border-b border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.12),0_0_80px_rgba(212,175,55,0.08)]'
-          : 'bg-background/10 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.05)]'
-      )}
-    >
-      <nav className="container-custom">
-        <div className="flex items-center justify-between h-20">
+    <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-4">
+      <nav
+        className={cn(
+          'container-custom transition-all duration-500 rounded-2xl',
+          isScrolled
+            ? 'bg-white/90 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-border/30'
+            : 'bg-white/70 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-white/50'
+        )}
+      >
+        <div className="flex items-center justify-between h-16 px-6">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-              <CarFront className="w-6 h-6 text-accent-foreground" />
+            <div className="w-9 h-9 bg-primary rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+              <CarFront className="w-5 h-5 text-primary-foreground" />
             </div>
-            <span className="font-heading font-bold text-xl text-foreground">
+            <span className="font-heading font-bold text-lg text-foreground">
               AA AUTO <span className="text-accent">EXPORT</span>
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-1 bg-secondary/50 rounded-xl p-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
                 className={cn(
-                  'font-medium text-sm transition-colors relative group',
+                  'font-medium text-sm px-4 py-2 rounded-lg transition-all duration-300',
                   location.pathname === link.href
-                    ? 'text-accent'
-                    : 'text-foreground/80 hover:text-foreground'
+                    ? 'bg-primary text-primary-foreground shadow-sm'
+                    : 'text-foreground/70 hover:text-foreground hover:bg-secondary'
                 )}
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full" />
               </Link>
             ))}
           </div>
 
           {/* Actions */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-3">
             <button
               onClick={toggleLanguage}
-              className="flex items-center gap-2 px-3 py-2 rounded-lg transition-colors text-foreground/80 hover:text-foreground hover:bg-foreground/10"
+              className="flex items-center gap-2 px-3 py-2 rounded-xl text-foreground/70 hover:text-foreground hover:bg-secondary transition-all duration-300"
             >
               <Languages className="w-4 h-4" />
               <span className="text-sm font-medium">{language === 'fr' ? 'العربية' : 'Français'}</span>
             </button>
-            <Button variant="accent" size="lg" asChild>
+            <Button variant="accent" size="default" className="rounded-xl" asChild>
               <Link to="/request">{t.nav.requestQuote}</Link>
             </Button>
           </div>
@@ -88,44 +87,44 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-lg transition-colors text-foreground"
+            className="lg:hidden p-2 rounded-xl text-foreground hover:bg-secondary transition-colors"
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
 
         {/* Mobile Menu */}
         <div
           className={cn(
-            'lg:hidden absolute top-full left-0 right-0 bg-background shadow-elevated transition-all duration-300 overflow-hidden',
-            isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+            'lg:hidden overflow-hidden transition-all duration-300',
+            isOpen ? 'max-h-screen pb-6' : 'max-h-0'
           )}
         >
-          <div className="container-custom py-6 space-y-4">
+          <div className="pt-2 space-y-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
                 onClick={() => setIsOpen(false)}
                 className={cn(
-                  'block py-3 font-medium transition-colors',
+                  'block py-3 px-4 rounded-xl font-medium transition-all duration-300',
                   location.pathname === link.href
-                    ? 'text-accent'
-                    : 'text-foreground/80 hover:text-foreground'
+                    ? 'bg-primary text-primary-foreground'
+                    : 'text-foreground/70 hover:text-foreground hover:bg-secondary'
                 )}
               >
                 {link.label}
               </Link>
             ))}
-            <div className="pt-4 border-t border-border space-y-4">
+            <div className="pt-4 mt-4 border-t border-border/50 space-y-3">
               <button
                 onClick={toggleLanguage}
-                className="flex items-center gap-2 text-foreground/80 hover:text-foreground transition-colors"
+                className="flex items-center gap-2 px-4 py-2 text-foreground/70 hover:text-foreground transition-colors"
               >
                 <Languages className="w-4 h-4" />
                 <span className="text-sm font-medium">{language === 'fr' ? 'العربية' : 'Français'}</span>
               </button>
-              <Button variant="accent" size="lg" className="w-full" asChild>
+              <Button variant="accent" size="lg" className="w-full rounded-xl" asChild>
                 <Link to="/request" onClick={() => setIsOpen(false)}>
                   {t.nav.requestQuote}
                 </Link>
