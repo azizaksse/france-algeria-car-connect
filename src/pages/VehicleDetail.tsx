@@ -259,7 +259,7 @@ const VehicleDetail = () => {
                 {/* Contact Buttons */}
                 <div className="grid grid-cols-2 gap-4">
                   <a
-                    href={`https://wa.me/33652323705?text=${whatsappMessage}`}
+                    href={`https://wa.me/33748424375?text=${whatsappMessage}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 px-6 py-4 bg-[#25D366] text-white font-semibold rounded-lg hover:bg-[#20BD5A] transition-colors"

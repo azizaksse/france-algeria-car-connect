@@ -83,22 +83,22 @@ const Footer = () => {
               </li>
               <li>
                 <a 
-                  href="https://wa.me/33652323705" 
+                  href="https://wa.me/33748424375" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="flex items-center gap-3 text-primary-foreground/80 hover:text-accent transition-colors text-sm"
                 >
                   <MessageCircle className="w-4 h-4 text-accent shrink-0" />
-                  <span>+33 6 52 32 37 05</span>
+                  <span>+33 7 48 42 43 75</span>
                 </a>
               </li>
               <li>
                 <a 
-                  href="tel:+33186048365" 
+                  href="tel:+33780783610" 
                   className="flex items-center gap-3 text-primary-foreground/80 hover:text-accent transition-colors text-sm"
                 >
                   <Smartphone className="w-4 h-4 text-accent shrink-0" />
-                  <span>+33 1 86 04 83 65</span>
+                  <span>+33 7 80 78 36 10</span>
                 </a>
               </li>
               <li>
@@ -161,7 +161,7 @@ const Footer = () => {
                 </a>
                 {/* WhatsApp */}
                 <a
-                  href="https://wa.me/33652323705"
+                  href="https://wa.me/33748424375"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-accent rounded-full flex items-center justify-center hover:bg-accent/80 transition-colors"
