@@ -28,7 +28,7 @@ const HeroSection = () => {
       </div>
 
       {/* Dark Overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/85 via-primary/75 to-navy-light/80" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/70 via-primary/55 to-navy-light/60" />
 
       {/* Content */}
       <div className="container-custom relative z-10 pt-20">
