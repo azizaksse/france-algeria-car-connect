@@ -9,6 +9,7 @@ import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import CookieConsent from "@/components/CookieConsent";
 import Index from "./pages/Index";
 import Vehicles from "./pages/Vehicles";
+import VehicleDetail from "./pages/VehicleDetail";
 import Services from "./pages/Services";
 import HowItWorks from "./pages/HowItWorks";
 import Request from "./pages/Request";
@@ -29,6 +30,7 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/vehicles" element={<Vehicles />} />
+              <Route path="/vehicles/:id" element={<VehicleDetail />} />
               <Route path="/services" element={<Services />} />
               <Route path="/how-it-works" element={<HowItWorks />} />
               <Route path="/request" element={<Request />} />
