@@ -20,8 +20,8 @@ const Contact = () => {
     {
       icon: MessageCircle,
       label: t.contact.whatsapp,
-      value: '+33 7 80 78 36 10',
-      href: 'https://wa.me/33780783610',
+      value: '+33 7 48 42 43 75',
+      href: 'https://wa.me/33748424375',
       description: language === 'fr' ? 'Écrivez-nous sur WhatsApp' : 'راسلنا على واتساب',
     },
     {
