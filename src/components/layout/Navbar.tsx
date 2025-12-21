@@ -51,7 +51,7 @@ const Navbar = () => {
               "font-heading font-bold text-xl transition-colors",
               isScrolled ? "text-foreground" : "text-primary-foreground"
             )}>
-              AutoExport<span className="text-accent">DZ</span>
+              AA AUTO <span className="text-accent">EXPORT</span>
             </span>
           </Link>
 

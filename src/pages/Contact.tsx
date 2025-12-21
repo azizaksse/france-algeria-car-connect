@@ -13,29 +13,29 @@ const Contact = () => {
     {
       icon: Phone,
       label: t.contact.phone,
-      value: '+33 6 12 34 56 78',
-      href: 'tel:+33612345678',
+      value: '+33 7 80 78 36 10',
+      href: 'tel:+33780783610',
       description: language === 'fr' ? 'Appelez-nous directement' : 'اتصل بنا مباشرة',
     },
     {
       icon: MessageCircle,
       label: t.contact.whatsapp,
-      value: '+33 6 12 34 56 78',
-      href: 'https://wa.me/33612345678',
+      value: '+33 7 80 78 36 10',
+      href: 'https://wa.me/33780783610',
       description: language === 'fr' ? 'Écrivez-nous sur WhatsApp' : 'راسلنا على واتساب',
     },
     {
       icon: Mail,
       label: t.contact.email,
-      value: 'contact@autoexportdz.com',
-      href: 'mailto:contact@autoexportdz.com',
+      value: 'contact@aaautoexport.com',
+      href: 'mailto:contact@aaautoexport.com',
       description: language === 'fr' ? 'Envoyez-nous un email' : 'أرسل لنا بريدًا إلكترونيًا',
     },
     {
       icon: MapPin,
       label: t.contact.address,
       value: 'Paris, France',
-      href: '#',
+      href: 'https://maps.app.goo.gl/bmsZZZa5o2wLAzDb8',
       description: language === 'fr' ? 'Notre siège social' : 'مقرنا الرئيسي',
     },
   ];
@@ -50,14 +50,14 @@ const Contact = () => {
     <>
       <Helmet>
         <title>
-          {language === 'fr' ? 'Contact - AutoExportDZ' : 'اتصل بنا - AutoExportDZ'}
+          {language === 'fr' ? 'Contact - AA AUTO EXPORT' : 'اتصل بنا - AA AUTO EXPORT'}
         </title>
         <meta
           name="description"
           content={
             language === 'fr'
-              ? 'Contactez AutoExportDZ pour toute question sur l\'exportation de véhicules vers l\'Algérie.'
-              : 'اتصل بـ AutoExportDZ لأي سؤال حول تصدير السيارات إلى الجزائر.'
+              ? 'Contactez AA AUTO EXPORT pour toute question sur l\'exportation de véhicules vers l\'Algérie.'
+              : 'اتصل بـ AA AUTO EXPORT لأي سؤال حول تصدير السيارات إلى الجزائر.'
           }
         />
       </Helmet>
@@ -128,20 +128,28 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* Map Placeholder */}
-              <div className={cn(
-                "bg-secondary/50 border border-border rounded-2xl overflow-hidden transition-all duration-700 delay-100",
-                isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              )}>
+              {/* Map */}
+              <a
+                href="https://maps.app.goo.gl/bmsZZZa5o2wLAzDb8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(
+                  "bg-secondary/50 border border-border rounded-2xl overflow-hidden transition-all duration-700 delay-100 block hover:border-accent/50",
+                  isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                )}
+              >
                 <div className="h-full min-h-[300px] flex items-center justify-center">
                   <div className="text-center">
-                    <MapPin className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
+                    <MapPin className="w-12 h-12 text-accent mx-auto mb-4" />
+                    <p className="text-foreground font-medium mb-2">
+                      {language === 'fr' ? 'Voir sur Google Maps' : 'عرض على خرائط جوجل'}
+                    </p>
                     <p className="text-muted-foreground">
                       {language === 'fr' ? 'Paris, France' : 'باريس، فرنسا'}
                     </p>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         </section>

@@ -10,10 +10,10 @@ const ContactSection = () => {
   const { ref, isInView } = useInView({ threshold: 0.1 });
 
   const contactItems = [
-    { icon: Phone, label: t.contact.phone, value: '+33 6 12 34 56 78', href: 'tel:+33612345678' },
-    { icon: MessageCircle, label: t.contact.whatsapp, value: '+33 6 12 34 56 78', href: 'https://wa.me/33612345678' },
-    { icon: Mail, label: t.contact.email, value: 'contact@autoexportdz.com', href: 'mailto:contact@autoexportdz.com' },
-    { icon: MapPin, label: t.contact.address, value: 'Paris, France', href: '#' },
+    { icon: Phone, label: t.contact.phone, value: '+33 7 80 78 36 10', href: 'tel:+33780783610' },
+    { icon: MessageCircle, label: t.contact.whatsapp, value: '+33 7 80 78 36 10', href: 'https://wa.me/33780783610' },
+    { icon: Mail, label: t.contact.email, value: 'contact@aaautoexport.com', href: 'mailto:contact@aaautoexport.com' },
+    { icon: MapPin, label: t.contact.address, value: 'Paris, France', href: 'https://maps.app.goo.gl/bmsZZZa5o2wLAzDb8' },
   ];
 
   return (
