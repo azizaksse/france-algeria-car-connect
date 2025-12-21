@@ -118,12 +118,19 @@ const VehiclesSection = () => {
                   </div>
                 </div>
 
-                {/* CTA */}
-                <Button variant="navy" className="w-full" asChild>
-                  <Link to={`/request?vehicle=${vehicle.brand} ${vehicle.model}`}>
-                    {t.vehicles.cta}
-                  </Link>
-                </Button>
+                {/* CTAs */}
+                <div className="flex gap-2">
+                  <Button variant="outline" className="flex-1" asChild>
+                    <Link to={`/vehicles/${vehicle.id}`}>
+                      {language === 'fr' ? 'Détails' : 'التفاصيل'}
+                    </Link>
+                  </Button>
+                  <Button variant="navy" className="flex-1" asChild>
+                    <Link to={`/request?vehicle=${vehicle.brand} ${vehicle.model}`}>
+                      {t.vehicles.cta}
+                    </Link>
+                  </Button>
+                </div>
               </div>
             </div>
           ))}

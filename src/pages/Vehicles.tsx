@@ -195,8 +195,9 @@ const VehicleCard = ({ vehicle, index, formatPrice, t }: { vehicle: Vehicle; ind
   const language = t.nav.home === 'Accueil' ? 'fr' : 'ar';
   
   return (
-    <div
-      className="group bg-card rounded-2xl overflow-hidden border border-border hover:border-accent/50 transition-all duration-500 hover:shadow-elevated hover:-translate-y-2 animate-fade-in-up"
+    <Link
+      to={`/vehicles/${vehicle.id}`}
+      className="group bg-card rounded-2xl overflow-hidden border border-border hover:border-accent/50 transition-all duration-500 hover:shadow-elevated hover:-translate-y-2 animate-fade-in-up block"
       style={{ animationDelay: `${index * 100}ms` }}
     >
       {/* Image */}
@@ -266,13 +267,11 @@ const VehicleCard = ({ vehicle, index, formatPrice, t }: { vehicle: Vehicle; ind
         </div>
 
         {/* CTA */}
-        <Button variant="navy" className="w-full" asChild>
-          <Link to={`/request?vehicle=${encodeURIComponent(`${vehicle.brand} ${vehicle.model}`)}`}>
-            {t.vehicles.cta}
-          </Link>
+        <Button variant="navy" className="w-full">
+          {language === 'fr' ? 'Voir les détails' : 'عرض التفاصيل'}
         </Button>
       </div>
-    </div>
+    </Link>
   );
 };
 
