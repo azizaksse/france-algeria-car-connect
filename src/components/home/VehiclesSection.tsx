@@ -50,7 +50,7 @@ const VehiclesSection = () => {
             <div
               key={vehicle.id}
               className={cn(
-                "group bg-card rounded-2xl overflow-hidden border border-border hover:border-accent/50 transition-all duration-500 hover:shadow-elevated hover:-translate-y-2",
+                "group bg-card rounded-2xl overflow-hidden border border-border/50 shadow-glass transition-all duration-500 hover:shadow-glass-hover hover:-translate-y-3",
                 isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               )}
               style={{ transitionDelay: isInView ? `${index * 150}ms` : '0ms' }}

@@ -47,7 +47,7 @@ const WhyUsSection = () => {
                   <div
                     key={index}
                     className={cn(
-                      "flex items-start gap-4 p-4 bg-card rounded-xl border border-border hover:border-accent/50 transition-all duration-500",
+                      "flex items-start gap-4 p-4 bg-card rounded-2xl border border-border/50 shadow-glass transition-all duration-500 hover:shadow-glass-hover hover:-translate-y-1",
                       isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                     )}
                     style={{ transitionDelay: isInView ? `${(index + 2) * 100}ms` : '0ms' }}
