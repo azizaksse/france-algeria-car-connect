@@ -4,6 +4,7 @@ export const translations = {
   fr: {
     nav: {
       home: 'Accueil',
+      about: 'À Propos',
       vehicles: 'Véhicules',
       services: 'Services',
       howItWorks: 'Comment ça marche',
@@ -100,6 +101,7 @@ export const translations = {
   ar: {
     nav: {
       home: 'الرئيسية',
+      about: 'من نحن',
       vehicles: 'السيارات',
       services: 'الخدمات',
       howItWorks: 'كيف يعمل',
