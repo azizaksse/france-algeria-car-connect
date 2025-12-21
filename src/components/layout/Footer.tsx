@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Car, Phone, Mail, MapPin } from 'lucide-react';
+import { CarFront, Smartphone, AtSign, MapPinned } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Footer = () => {
@@ -13,7 +13,7 @@ const Footer = () => {
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-2">
               <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
-                <Car className="w-6 h-6 text-accent-foreground" />
+                <CarFront className="w-6 h-6 text-accent-foreground" />
               </div>
               <span className="font-heading font-bold text-xl">
                 AA AUTO <span className="text-accent">EXPORT</span>
@@ -82,19 +82,19 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <a href="tel:+33780783610" className="flex items-center gap-3 text-primary-foreground/70 hover:text-accent transition-colors text-sm">
-                  <Phone className="w-4 h-4 text-accent" />
+                  <Smartphone className="w-4 h-4 text-accent" />
                   <span>+33 7 80 78 36 10</span>
                 </a>
               </li>
               <li>
                 <a href="https://wa.me/33748424375" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-primary-foreground/70 hover:text-accent transition-colors text-sm">
-                  <Mail className="w-4 h-4 text-accent" />
+                  <AtSign className="w-4 h-4 text-accent" />
                   <span>WhatsApp</span>
                 </a>
               </li>
               <li>
                 <a href="https://maps.app.goo.gl/bmsZZZa5o2wLAzDb8" target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 text-primary-foreground/70 hover:text-accent transition-colors text-sm">
-                  <MapPin className="w-4 h-4 text-accent mt-0.5" />
+                  <MapPinned className="w-4 h-4 text-accent mt-0.5" />
                   <span>Paris, France</span>
                 </a>
               </li>

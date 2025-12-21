@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Phone, MessageCircle, Mail, MapPin, ArrowRight } from 'lucide-react';
+import { Smartphone, MessageSquare, AtSign, MapPinned, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useInView } from '@/hooks/useInView';
@@ -10,10 +10,10 @@ const ContactSection = () => {
   const { ref, isInView } = useInView({ threshold: 0.1 });
 
   const contactItems = [
-    { icon: Phone, label: t.contact.phone, value: '+33 7 80 78 36 10', href: 'tel:+33780783610' },
-    { icon: MessageCircle, label: t.contact.whatsapp, value: '+33 7 48 42 43 75', href: 'https://wa.me/33748424375' },
-    { icon: Mail, label: t.contact.email, value: 'contact@aaautoexport.com', href: 'mailto:contact@aaautoexport.com' },
-    { icon: MapPin, label: t.contact.address, value: 'Paris, France', href: 'https://maps.app.goo.gl/bmsZZZa5o2wLAzDb8' },
+    { icon: Smartphone, label: t.contact.phone, value: '+33 7 80 78 36 10', href: 'tel:+33780783610' },
+    { icon: MessageSquare, label: t.contact.whatsapp, value: '+33 7 48 42 43 75', href: 'https://wa.me/33748424375' },
+    { icon: AtSign, label: t.contact.email, value: 'contact@aaautoexport.com', href: 'mailto:contact@aaautoexport.com' },
+    { icon: MapPinned, label: t.contact.address, value: 'Paris, France', href: 'https://maps.app.goo.gl/bmsZZZa5o2wLAzDb8' },
   ];
 
   return (

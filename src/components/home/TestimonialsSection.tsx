@@ -1,4 +1,4 @@
-import { Star, Quote } from 'lucide-react';
+import { Sparkle, MessageSquareQuote } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useInView } from '@/hooks/useInView';
 import { testimonials } from '@/data/testimonials';
@@ -37,13 +37,13 @@ const TestimonialsSection = () => {
             >
               {/* Quote Icon */}
               <div className="absolute top-6 right-6">
-                <Quote className="w-10 h-10 text-accent/20" />
+                <MessageSquareQuote className="w-10 h-10 text-accent/20" />
               </div>
 
               {/* Stars */}
               <div className="flex gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-accent text-accent" />
+                  <Sparkle key={i} className="w-5 h-5 fill-accent text-accent" />
                 ))}
               </div>
 

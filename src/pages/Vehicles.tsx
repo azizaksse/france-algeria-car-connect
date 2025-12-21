@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { Filter, Fuel, Calendar, Gauge, X } from 'lucide-react';
+import { SlidersHorizontal, Droplets, CalendarDays, Activity, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Layout from '@/components/layout/Layout';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -104,7 +104,7 @@ const Vehicles = () => {
                   onClick={() => setShowFilters(!showFilters)}
                   className="md:hidden flex items-center gap-2 px-4 py-2 bg-secondary text-secondary-foreground rounded-lg"
                 >
-                  <Filter className="w-4 h-4" />
+                  <SlidersHorizontal className="w-4 h-4" />
                   <span className="text-sm font-medium">Filtres</span>
                 </button>
 
@@ -229,16 +229,16 @@ const VehicleCard = ({ vehicle, index, formatPrice, t }: { vehicle: Vehicle; ind
         {/* Specs */}
         <div className="flex items-center gap-4 text-muted-foreground text-sm">
           <div className="flex items-center gap-1.5">
-            <Calendar className="w-4 h-4" />
+            <CalendarDays className="w-4 h-4" />
             <span>{vehicle.year}</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <Fuel className="w-4 h-4" />
+            <Droplets className="w-4 h-4" />
             <span>{vehicle.fuel}</span>
           </div>
           {vehicle.mileage && (
             <div className="flex items-center gap-1.5">
-              <Gauge className="w-4 h-4" />
+              <Activity className="w-4 h-4" />
               <span>{vehicle.mileage.toLocaleString()} km</span>
             </div>
           )}

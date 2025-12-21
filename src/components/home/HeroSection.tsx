@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Shield, Clock, Award } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Zap, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -7,9 +7,9 @@ const HeroSection = () => {
   const { t, language } = useLanguage();
 
   const stats = [
-    { icon: Shield, value: '10+', label: language === 'fr' ? 'Ans d\'expertise' : 'سنوات من الخبرة' },
-    { icon: Clock, value: '500+', label: language === 'fr' ? 'Véhicules exportés' : 'سيارة مصدرة' },
-    { icon: Award, value: '100%', label: language === 'fr' ? 'Clients satisfaits' : 'عملاء راضون' },
+    { icon: ShieldCheck, value: '10+', label: language === 'fr' ? 'Ans d\'expertise' : 'سنوات من الخبرة' },
+    { icon: Zap, value: '500+', label: language === 'fr' ? 'Véhicules exportés' : 'سيارة مصدرة' },
+    { icon: Sparkles, value: '100%', label: language === 'fr' ? 'Clients satisfaits' : 'عملاء راضون' },
   ];
 
   return (

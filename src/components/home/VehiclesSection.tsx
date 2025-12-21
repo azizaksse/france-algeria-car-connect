@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Fuel, Calendar, Gauge } from 'lucide-react';
+import { ArrowRight, Droplets, CalendarDays, Activity } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useInView } from '@/hooks/useInView';
@@ -88,16 +88,16 @@ const VehiclesSection = () => {
                 {/* Specs */}
                 <div className="flex items-center gap-4 text-muted-foreground text-sm">
                   <div className="flex items-center gap-1.5">
-                    <Calendar className="w-4 h-4" />
+                    <CalendarDays className="w-4 h-4" />
                     <span>{vehicle.year}</span>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <Fuel className="w-4 h-4" />
+                    <Droplets className="w-4 h-4" />
                     <span>{vehicle.fuel}</span>
                   </div>
                   {vehicle.mileage && (
                     <div className="flex items-center gap-1.5">
-                      <Gauge className="w-4 h-4" />
+                      <Activity className="w-4 h-4" />
                       <span>{vehicle.mileage.toLocaleString()} km</span>
                     </div>
                   )}

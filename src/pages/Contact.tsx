@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { Phone, MessageCircle, Mail, MapPin, Clock } from 'lucide-react';
+import { Smartphone, MessageSquare, AtSign, MapPinned, Timer } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useInView } from '@/hooks/useInView';
@@ -11,28 +11,28 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: Phone,
+      icon: Smartphone,
       label: t.contact.phone,
       value: '+33 7 80 78 36 10',
       href: 'tel:+33780783610',
       description: language === 'fr' ? 'Appelez-nous directement' : 'اتصل بنا مباشرة',
     },
     {
-      icon: MessageCircle,
+      icon: MessageSquare,
       label: t.contact.whatsapp,
       value: '+33 7 48 42 43 75',
       href: 'https://wa.me/33748424375',
       description: language === 'fr' ? 'Écrivez-nous sur WhatsApp' : 'راسلنا على واتساب',
     },
     {
-      icon: Mail,
+      icon: AtSign,
       label: t.contact.email,
       value: 'contact@aaautoexport.com',
       href: 'mailto:contact@aaautoexport.com',
       description: language === 'fr' ? 'Envoyez-nous un email' : 'أرسل لنا بريدًا إلكترونيًا',
     },
     {
-      icon: MapPin,
+      icon: MapPinned,
       label: t.contact.address,
       value: 'Paris, France',
       href: 'https://maps.app.goo.gl/bmsZZZa5o2wLAzDb8',
@@ -112,7 +112,7 @@ const Contact = () => {
               )}>
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
-                    <Clock className="w-6 h-6 text-accent" />
+                    <Timer className="w-6 h-6 text-accent" />
                   </div>
                   <h2 className="font-heading text-xl font-bold text-foreground">
                     {language === 'fr' ? 'Horaires d\'ouverture' : 'ساعات العمل'}
@@ -140,7 +140,7 @@ const Contact = () => {
               >
                 <div className="h-full min-h-[300px] flex items-center justify-center">
                   <div className="text-center">
-                    <MapPin className="w-12 h-12 text-accent mx-auto mb-4" />
+                    <MapPinned className="w-12 h-12 text-accent mx-auto mb-4" />
                     <p className="text-foreground font-medium mb-2">
                       {language === 'fr' ? 'Voir sur Google Maps' : 'عرض على خرائط جوجل'}
                     </p>

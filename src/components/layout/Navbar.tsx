@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Globe, Car } from 'lucide-react';
+import { Menu, X, Languages, CarFront } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { cn } from '@/lib/utils';
@@ -45,7 +45,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
             <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-              <Car className="w-6 h-6 text-accent-foreground" />
+              <CarFront className="w-6 h-6 text-accent-foreground" />
             </div>
             <span className={cn(
               "font-heading font-bold text-xl transition-colors",
@@ -87,7 +87,7 @@ const Navbar = () => {
                   : 'text-primary-foreground hover:bg-primary-foreground/10'
               )}
             >
-              <Globe className="w-4 h-4" />
+              <Languages className="w-4 h-4" />
               <span className="text-sm font-medium">{language === 'fr' ? 'العربية' : 'Français'}</span>
             </button>
             <Button variant="accent" size="lg" asChild>
@@ -135,7 +135,7 @@ const Navbar = () => {
                 onClick={toggleLanguage}
                 className="flex items-center gap-2 text-foreground/80 hover:text-foreground transition-colors"
               >
-                <Globe className="w-4 h-4" />
+                <Languages className="w-4 h-4" />
                 <span className="text-sm font-medium">{language === 'fr' ? 'العربية' : 'Français'}</span>
               </button>
               <Button variant="accent" size="lg" className="w-full" asChild>
