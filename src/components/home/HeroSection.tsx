@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useInView } from '@/hooks/useInView';
 import { cn } from '@/lib/utils';
+import heroBg from '@/assets/hero-bg.jpeg';
 
 const HeroSection = () => {
   const { t, language } = useLanguage();
@@ -27,20 +28,16 @@ const HeroSection = () => {
 
   return (
     <section ref={ref} className="relative min-h-screen flex items-center bg-primary overflow-hidden">
-      {/* Video Background with Parallax */}
+      {/* Image Background with Parallax */}
       <div 
         className="absolute inset-0 will-change-transform"
         style={{ transform: `translateY(${scrollY * 0.4}px) scale(1.1)` }}
       >
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
+        <img
+          src={heroBg}
+          alt="Car dealership lot"
           className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/videos/hero-bg.mp4" type="video/mp4" />
-        </video>
+        />
       </div>
 
       {/* Dark Overlay for text readability */}
