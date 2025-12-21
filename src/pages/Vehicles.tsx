@@ -39,7 +39,8 @@ const Vehicles = () => {
     return new Intl.NumberFormat(language === 'fr' ? 'fr-FR' : 'ar-DZ', {
       style: 'currency',
       currency: 'EUR',
-      maximumFractionDigits: 0,
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
     }).format(price);
   };
 
@@ -191,13 +192,15 @@ const Vehicles = () => {
 };
 
 const VehicleCard = ({ vehicle, index, formatPrice, t }: { vehicle: Vehicle; index: number; formatPrice: (price: number) => string; t: any }) => {
+  const language = t.nav.home === 'Accueil' ? 'fr' : 'ar';
+  
   return (
     <div
       className="group bg-card rounded-2xl overflow-hidden border border-border hover:border-accent/50 transition-all duration-500 hover:shadow-elevated hover:-translate-y-2 animate-fade-in-up"
       style={{ animationDelay: `${index * 100}ms` }}
     >
       {/* Image */}
-      <div className="relative aspect-[4/3] overflow-hidden">
+      <div className="relative aspect-[4/3] overflow-hidden bg-muted">
         <img
           src={vehicle.image}
           alt={`${vehicle.brand} ${vehicle.model}`}
@@ -205,7 +208,7 @@ const VehicleCard = ({ vehicle, index, formatPrice, t }: { vehicle: Vehicle; ind
         />
         <div className="absolute top-4 left-4">
           <span className={cn(
-            "px-3 py-1 rounded-full text-xs font-semibold",
+            "px-3 py-1 rounded text-xs font-bold uppercase",
             vehicle.category === 'new'
               ? "bg-accent text-accent-foreground"
               : "bg-foreground text-background"
@@ -213,35 +216,53 @@ const VehicleCard = ({ vehicle, index, formatPrice, t }: { vehicle: Vehicle; ind
             {vehicle.category === 'new' ? t.vehicles.filter.new : t.vehicles.filter.used}
           </span>
         </div>
+        {/* Price overlay */}
+        <div className="absolute bottom-4 left-4">
+          <span className="text-2xl font-bold text-white drop-shadow-lg">
+            {formatPrice(vehicle.price)}
+          </span>
+        </div>
       </div>
 
       {/* Content */}
       <div className="p-6 space-y-4">
+        {/* Category tag */}
+        <span className="text-accent font-semibold text-sm uppercase">
+          {vehicle.category === 'new' ? 'NEUF' : 'OCCASION'}
+        </span>
+
         <div>
-          <h3 className="font-heading font-semibold text-xl text-foreground">
+          <h3 className="font-heading font-bold text-lg text-foreground line-clamp-2">
             {vehicle.brand} {vehicle.model}
           </h3>
-          <p className="text-accent font-bold text-2xl mt-1">
-            {formatPrice(vehicle.price)}
-          </p>
         </div>
 
-        {/* Specs */}
-        <div className="flex items-center gap-4 text-muted-foreground text-sm">
-          <div className="flex items-center gap-1.5">
-            <CalendarDays className="w-4 h-4" />
-            <span>{vehicle.year}</span>
+        {/* Specs Table */}
+        <div className="space-y-2 text-sm border-t border-border pt-4">
+          <div className="flex justify-between">
+            <span className="text-muted-foreground">{language === 'fr' ? 'Année' : 'السنة'}</span>
+            <span className="font-semibold text-foreground">{vehicle.year}</span>
           </div>
-          <div className="flex items-center gap-1.5">
-            <Droplets className="w-4 h-4" />
-            <span>{vehicle.fuel}</span>
+          <div className="flex justify-between">
+            <span className="text-muted-foreground">{language === 'fr' ? 'Marque' : 'الماركة'}</span>
+            <span className="font-semibold text-foreground">{vehicle.brand}</span>
           </div>
-          {vehicle.mileage && (
-            <div className="flex items-center gap-1.5">
-              <Activity className="w-4 h-4" />
-              <span>{vehicle.mileage.toLocaleString()} km</span>
-            </div>
-          )}
+          <div className="flex justify-between">
+            <span className="text-muted-foreground">{language === 'fr' ? 'Kilométrage' : 'المسافة المقطوعة'}</span>
+            <span className="font-semibold text-foreground">{vehicle.mileage?.toLocaleString() || 0} Km</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="text-muted-foreground">{language === 'fr' ? 'N° Référence' : 'رقم المرجع'}</span>
+            <span className="font-semibold text-foreground">{vehicle.reference}</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="text-muted-foreground">{language === 'fr' ? 'Carburant' : 'الوقود'}</span>
+            <span className="font-semibold text-foreground">{vehicle.fuel}</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="text-muted-foreground">{language === 'fr' ? 'Transmission' : 'ناقل الحركة'}</span>
+            <span className="font-semibold text-foreground">{vehicle.transmission}</span>
+          </div>
         </div>
 
         {/* CTA */}
