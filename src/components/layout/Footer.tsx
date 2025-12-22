@@ -16,7 +16,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-secondary pt-16 pb-8 text-primary-foreground">
+    <footer className="bg-primary pt-16 pb-8 text-primary-foreground">
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand & Opening Hours */}
