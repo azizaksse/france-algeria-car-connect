@@ -27,6 +27,7 @@ export const translations = {
         { title: 'Démarches administratives', description: 'Gestion complète des documents et formalités douanières.' },
         { title: 'Transport & Export', description: 'Logistique maritime et terrestre vers le Maghreb.' },
         { title: 'Livraison', description: 'Réception de votre véhicule dans le pays de votre choix.' },
+        { title: 'Mécanique Rapide', description: 'Entretien et réparations rapides pour votre véhicule.' },
       ],
     },
     vehicles: {
@@ -124,6 +125,7 @@ export const translations = {
         { title: 'الإجراءات الإدارية', description: 'إدارة كاملة للوثائق والإجراءات الجمركية.' },
         { title: 'النقل والتصدير', description: 'الخدمات اللوجستية البحرية والبرية إلى المغرب العربي.' },
         { title: 'التسليم', description: 'استلام سيارتك في البلد الذي تختاره.' },
+        { title: 'ميكانيك سريع', description: 'صيانة وإصلاحات سريعة لسيارتك.' },
       ],
     },
     vehicles: {

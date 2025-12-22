@@ -1,4 +1,4 @@
-import { ScanSearch, ShoppingBag, ScrollText, Ship, Navigation } from 'lucide-react';
+import { ScanSearch, ShoppingBag, ScrollText, Ship, Navigation, Wrench } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useInView } from '@/hooks/useInView';
 import { cn } from '@/lib/utils';
@@ -7,7 +7,7 @@ const ServicesSection = () => {
   const { t } = useLanguage();
   const { ref, isInView } = useInView({ threshold: 0.1 });
 
-  const icons = [ScanSearch, ShoppingBag, ScrollText, Ship, Navigation];
+  const icons = [ScanSearch, ShoppingBag, ScrollText, Ship, Navigation, Wrench];
 
   return (
     <section ref={ref} className="section-padding bg-secondary/30">
