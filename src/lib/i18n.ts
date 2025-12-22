@@ -57,7 +57,7 @@ export const translations = {
       title: 'Pourquoi nous choisir',
       subtitle: 'Des années d\'expertise à votre service',
       items: [
-        { title: 'Expertise France–Maghreb', description: 'Plus de 10 ans d\'expérience dans l\'export automobile.' },
+        { title: 'Expertise France–Maghreb', description: 'Une expertise solide dans l\'export automobile.' },
         { title: 'Transparence des prix', description: 'Devis détaillé sans frais cachés, tout compris.' },
         { title: 'Accompagnement complet', description: 'Un interlocuteur unique du début à la fin.' },
         { title: 'Clients satisfaits', description: 'Des centaines de véhicules exportés avec succès.' },
@@ -154,7 +154,7 @@ export const translations = {
       title: 'لماذا تختارنا',
       subtitle: 'سنوات من الخبرة في خدمتك',
       items: [
-        { title: 'خبرة فرنسا-المغرب العربي', description: 'أكثر من 10 سنوات من الخبرة في تصدير السيارات.' },
+        { title: 'خبرة فرنسا-المغرب العربي', description: 'خبرة قوية في تصدير السيارات.' },
         { title: 'شفافية الأسعار', description: 'عرض أسعار مفصل بدون رسوم مخفية.' },
         { title: 'مرافقة كاملة', description: 'محاور واحد من البداية إلى النهاية.' },
         { title: 'عملاء راضون', description: 'مئات السيارات تم تصديرها بنجاح.' },

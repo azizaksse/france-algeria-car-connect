@@ -15,11 +15,11 @@ const About = () => {
   const content = {
     fr: {
       title: 'À Propos de Nous',
-      subtitle: 'Votre partenaire de confiance depuis plus de 10 ans',
+      subtitle: 'Votre partenaire de confiance',
       story: {
         title: 'Notre Histoire',
         p1: 'AA AUTO EXPORT est née d\'une passion pour l\'automobile et d\'une volonté d\'accompagner la diaspora algérienne en France dans leurs projets d\'acquisition de véhicules.',
-        p2: 'Depuis plus de 10 ans, nous avons construit une expertise solide dans l\'exportation de véhicules de France vers l\'Algérie, en développant un réseau de partenaires fiables et en perfectionnant nos processus.',
+        p2: 'Nous avons construit une expertise solide dans l\'exportation de véhicules de France vers l\'Algérie, en développant un réseau de partenaires fiables et en perfectionnant nos processus.',
         p3: 'Aujourd\'hui, nous sommes fiers d\'avoir accompagné des centaines de clients satisfaits et de continuer à leur offrir un service d\'excellence.',
       },
       mission: {
@@ -38,7 +38,7 @@ const About = () => {
         ],
       },
       stats: [
-        { value: '10+', label: 'Années d\'expérience' },
+        { value: 'Expertise', label: 'Reconnue' },
         { value: '500+', label: 'Véhicules exportés' },
         { value: '100%', label: 'Clients satisfaits' },
         { value: '48', label: 'Wilayas desservies' },
@@ -46,11 +46,11 @@ const About = () => {
     },
     ar: {
       title: 'من نحن',
-      subtitle: 'شريكك الموثوق منذ أكثر من 10 سنوات',
+      subtitle: 'شريكك الموثوق',
       story: {
         title: 'قصتنا',
         p1: 'ولدت AA AUTO EXPORT من شغف بالسيارات ورغبة في مساعدة الجالية الجزائرية في فرنسا في مشاريع شراء السيارات.',
-        p2: 'منذ أكثر من 10 سنوات، بنينا خبرة قوية في تصدير السيارات من فرنسا إلى الجزائر، من خلال تطوير شبكة من الشركاء الموثوقين وتحسين عملياتنا.',
+        p2: 'بنينا خبرة قوية في تصدير السيارات من فرنسا إلى الجزائر، من خلال تطوير شبكة من الشركاء الموثوقين وتحسين عملياتنا.',
         p3: 'اليوم، نحن فخورون بمرافقة مئات العملاء الراضين والاستمرار في تقديم خدمة متميزة لهم.',
       },
       mission: {
@@ -69,7 +69,7 @@ const About = () => {
         ],
       },
       stats: [
-        { value: '10+', label: 'سنوات من الخبرة' },
+        { value: 'خبرة', label: 'معترف بها' },
         { value: '500+', label: 'سيارة مصدرة' },
         { value: '100%', label: 'عملاء راضون' },
         { value: '48', label: 'ولاية مخدومة' },
@@ -81,9 +81,9 @@ const About = () => {
 
   return (
     <Layout>
-      <SEO 
+      <SEO
         title={language === 'fr' ? 'À Propos | AA AUTO EXPORT' : 'من نحن | AA AUTO EXPORT'}
-        description={language === 'fr' 
+        description={language === 'fr'
           ? 'Découvrez AA AUTO EXPORT, votre partenaire de confiance pour l\'exportation de véhicules de France vers l\'Algérie depuis plus de 10 ans.'
           : 'اكتشف AA AUTO EXPORT، شريكك الموثوق لتصدير السيارات من فرنسا إلى الجزائر منذ أكثر من 10 سنوات.'
         }
