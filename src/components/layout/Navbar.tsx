@@ -36,7 +36,7 @@ const Navbar = () => {
     <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-4">
       <nav
         className={cn(
-          'container-custom transition-all duration-500 rounded-full',
+          'container-custom transition-all duration-500 rounded-2xl',
           isScrolled
             ? 'bg-white/90 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-border/30'
             : 'bg-white/70 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-white/50'
@@ -44,23 +44,22 @@ const Navbar = () => {
       >
         <div className="flex items-center justify-between h-16 px-6">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 bg-primary rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-              <CarFront className="w-5 h-5 text-primary-foreground" />
-            </div>
-            <span className="font-heading font-bold text-lg text-foreground">
-              AA AUTO <span className="text-accent">EXPORT</span>
-            </span>
+          <Link to="/" className="flex items-center group">
+            <img
+              src="/logo-transparent.png"
+              alt="2A AUTO EXPORT"
+              className="h-[160px] w-auto transition-transform duration-300 group-hover:scale-105"
+            />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-1 bg-secondary/50 rounded-full p-1">
+          <div className="hidden lg:flex items-center gap-1 bg-secondary/50 rounded-2xl p-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
                 className={cn(
-                  'font-medium text-sm px-4 py-2 rounded-full transition-all duration-300',
+                  'font-medium text-sm px-4 py-2 rounded-xl transition-all duration-300',
                   location.pathname === link.href
                     ? 'bg-primary text-primary-foreground shadow-sm'
                     : 'text-foreground/70 hover:text-foreground hover:bg-secondary'

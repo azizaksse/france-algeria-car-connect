@@ -13,8 +13,8 @@ const Contact = () => {
     {
       icon: Smartphone,
       label: t.contact.phone,
-      value: '+33 7 80 78 36 10',
-      href: 'tel:+33780783610',
+      value: '+33 7 48 42 43 75',
+      href: 'tel:+33748424375',
       description: language === 'fr' ? 'Appelez-nous directement' : 'اتصل بنا مباشرة',
     },
     {
@@ -27,15 +27,15 @@ const Contact = () => {
     {
       icon: AtSign,
       label: t.contact.email,
-      value: 'contact@aaautoexport.com',
-      href: 'mailto:contact@aaautoexport.com',
+      value: '2A.autoexport@gmail.com',
+      href: 'mailto:2A.autoexport@gmail.com',
       description: language === 'fr' ? 'Envoyez-nous un email' : 'أرسل لنا بريدًا إلكترونيًا',
     },
     {
       icon: MapPinned,
       label: t.contact.address,
-      value: 'Paris, France',
-      href: 'https://maps.app.goo.gl/bmsZZZa5o2wLAzDb8',
+      value: '81 avenue Lénine 93380 pierrefitte sur seine',
+      href: 'https://maps.app.goo.gl/nErQ7C9xdffNwAzC9',
       description: language === 'fr' ? 'Notre siège social' : 'مقرنا الرئيسي',
     },
   ];
@@ -130,7 +130,7 @@ const Contact = () => {
 
               {/* Map */}
               <a
-                href="https://maps.app.goo.gl/bmsZZZa5o2wLAzDb8"
+                href="https://maps.app.goo.gl/nErQ7C9xdffNwAzC9"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
@@ -145,7 +145,7 @@ const Contact = () => {
                       {language === 'fr' ? 'Voir sur Google Maps' : 'عرض على خرائط جوجل'}
                     </p>
                     <p className="text-muted-foreground">
-                      {language === 'fr' ? 'Paris, France' : 'باريس، فرنسا'}
+                      {language === 'fr' ? '81 avenue Lénine 93380 pierrefitte sur seine' : '81 شارع لينين 93380 بييرفيت سور سين'}
                     </p>
                   </div>
                 </div>

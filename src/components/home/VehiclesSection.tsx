@@ -3,14 +3,54 @@ import { ArrowRight, Droplets, CalendarDays, Activity, Settings } from 'lucide-r
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useInView } from '@/hooks/useInView';
-import { vehicles } from '@/data/vehicles';
+import { vehicles as staticVehicles, Vehicle } from '@/data/vehicles';
+import { supabase } from '@/lib/supabase';
 import { cn } from '@/lib/utils';
+import { useState, useEffect } from 'react';
 
 const VehiclesSection = () => {
   const { t, language } = useLanguage();
   const { ref, isInView } = useInView({ threshold: 0.1 });
 
-  const displayVehicles = vehicles.slice(0, 3);
+  const [displayVehicles, setDisplayVehicles] = useState<Vehicle[]>([]);
+
+  useEffect(() => {
+    const fetchFeaturedVehicles = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('vehicles')
+          .select('*')
+          .limit(3);
+
+        if (error) throw error;
+
+        if (data) {
+          const mappedVehicles: Vehicle[] = data.map(v => ({
+            id: v.id,
+            brand: v.brand,
+            model: v.model,
+            year: v.year,
+            fuel: v.fuel,
+            price: v.price,
+            image: v.image,
+            category: v.category,
+            mileage: v.mileage,
+            available: v.available,
+            transmission: v.transmission,
+            reference: v.reference,
+            bodyType: v.body_type,
+            exteriorColor: v.exterior_color,
+            status: v.status
+          }));
+          setDisplayVehicles(mappedVehicles);
+        }
+      } catch (error) {
+        console.error('Error fetching featured vehicles:', error);
+      }
+    };
+
+    fetchFeaturedVehicles();
+  }, []);
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat(language === 'fr' ? 'fr-FR' : 'ar-DZ', {

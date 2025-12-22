@@ -1,24 +1,13 @@
-import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ShieldCheck, Zap, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useInView } from '@/hooks/useInView';
 import { cn } from '@/lib/utils';
-import heroBg from '@/assets/hero-bg.jpeg';
 
 const HeroSection = () => {
   const { t, language } = useLanguage();
   const { ref, isInView } = useInView({ threshold: 0.1 });
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const stats = [
     { icon: ShieldCheck, value: '10+', label: language === 'fr' ? 'Ans d\'expertise' : 'سنوات من الخبرة' },
@@ -27,24 +16,18 @@ const HeroSection = () => {
   ];
 
   return (
-    <section ref={ref} className="relative min-h-screen flex items-center bg-primary overflow-hidden">
-      {/* Image Background with Parallax */}
-      <div 
-        className="absolute inset-0 will-change-transform"
-        style={{ transform: `translateY(${scrollY * 0.4}px) scale(1.1)` }}
-      >
+    <section ref={ref} className="relative min-h-screen flex items-center bg-primary overflow-hidden snap-start">
+      {/* Image Background - Fixed */}
+      <div className="absolute inset-0">
         <img
-          src={heroBg}
-          alt="Car dealership lot"
+          src="/hero bg .jpg"
+          alt="Car dealership ferry transport"
           className="absolute inset-0 w-full h-full object-cover"
         />
       </div>
 
       {/* Dark Overlay for text readability */}
-      <div 
-        className="absolute inset-0 bg-gradient-to-br from-primary/70 via-primary/55 to-navy-light/60"
-        style={{ transform: `translateY(${scrollY * 0.2}px)` }}
-      />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/70 via-primary/55 to-navy-light/60" />
 
       {/* Content */}
       <div className="container-custom relative z-10 pt-20">
@@ -57,7 +40,7 @@ const HeroSection = () => {
             )}>
               <span className="w-2 h-2 bg-accent rounded-full animate-pulse-slow" />
               <span className="text-primary-foreground/80 text-sm font-medium">
-                {language === 'fr' ? 'Export France → Algérie' : 'تصدير فرنسا ← الجزائر'}
+                {language === 'fr' ? 'Export France → Algérie, Tunisie, Maroc' : 'تصدير فرنسا ← الجزائر، تونس، المغرب'}
               </span>
             </div>
 
@@ -97,8 +80,8 @@ const HeroSection = () => {
               isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             )}>
               {stats.map((stat, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className={cn(
                     "flex items-center gap-3 transition-all duration-500",
                     isInView ? "opacity-100 scale-100" : "opacity-0 scale-95"

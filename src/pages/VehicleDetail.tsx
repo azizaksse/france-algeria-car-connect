@@ -1,34 +1,89 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { 
-  ArrowLeft, 
-  MessageCircle, 
-  Mail, 
-  Calendar, 
-  Fuel, 
-  Gauge, 
-  Settings, 
-  Car, 
+import {
+  ArrowLeft,
+  MessageCircle,
+  Mail,
+  Calendar,
+  Fuel,
+  Gauge,
+  Settings,
+  Car,
   Palette,
   Hash,
   CheckCircle,
   ChevronLeft,
   ChevronRight
 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import Layout from '@/components/layout/Layout';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { vehicles } from '@/data/vehicles';
+import { supabase } from '@/lib/supabase';
+import { Vehicle } from '@/data/vehicles';
+import Layout from '@/components/layout/Layout';
+import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 const VehicleDetail = () => {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams();
   const navigate = useNavigate();
   const { language } = useLanguage();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const vehicle = vehicles.find(v => v.id === id);
+  const [vehicle, setVehicle] = useState<Vehicle | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchVehicle = async () => {
+      if (!id) return;
+
+      try {
+        const { data, error } = await supabase
+          .from('vehicles')
+          .select('*')
+          .eq('id', id)
+          .single();
+
+        if (error) throw error;
+
+        if (data) {
+          const mappedVehicle: Vehicle = {
+            id: data.id,
+            brand: data.brand,
+            model: data.model,
+            year: data.year,
+            fuel: data.fuel,
+            price: data.price,
+            image: data.image,
+            category: data.category,
+            mileage: data.mileage,
+            available: data.available,
+            transmission: data.transmission,
+            reference: data.reference,
+            bodyType: data.body_type,
+            exteriorColor: data.exterior_color,
+            status: data.status
+          };
+          setVehicle(mappedVehicle);
+        }
+      } catch (error) {
+        console.error('Error fetching vehicle:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchVehicle();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <Layout>
+        <div className="min-h-screen flex items-center justify-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+        </div>
+      </Layout>
+    );
+  }
 
   if (!vehicle) {
     return (
@@ -67,7 +122,7 @@ const VehicleDetail = () => {
   };
 
   const whatsappMessage = encodeURIComponent(
-    language === 'fr' 
+    language === 'fr'
       ? `Bonjour, je suis intéressé par le véhicule: ${vehicle.brand} ${vehicle.model} (Réf: ${vehicle.reference}) à ${formatPrice(vehicle.price)}`
       : `مرحبا، أنا مهتم بالسيارة: ${vehicle.brand} ${vehicle.model} (المرجع: ${vehicle.reference}) بسعر ${formatPrice(vehicle.price)}`
   );
@@ -85,55 +140,55 @@ const VehicleDetail = () => {
   );
 
   const specs = [
-    { 
-      label: language === 'fr' ? 'Année' : 'السنة', 
+    {
+      label: language === 'fr' ? 'Année' : 'السنة',
       value: vehicle.year,
-      icon: Calendar 
+      icon: Calendar
     },
-    { 
-      label: language === 'fr' ? 'Marque' : 'الماركة', 
+    {
+      label: language === 'fr' ? 'Marque' : 'الماركة',
       value: vehicle.brand,
-      icon: Car 
+      icon: Car
     },
-    { 
-      label: language === 'fr' ? 'Modèle' : 'الموديل', 
+    {
+      label: language === 'fr' ? 'Modèle' : 'الموديل',
       value: vehicle.model.split(' ')[0],
-      icon: Car 
+      icon: Car
     },
-    { 
-      label: language === 'fr' ? 'Carrosserie' : 'نوع الهيكل', 
+    {
+      label: language === 'fr' ? 'Carrosserie' : 'نوع الهيكل',
       value: vehicle.bodyType || 'Berline',
-      icon: Car 
+      icon: Car
     },
-    { 
-      label: language === 'fr' ? 'État' : 'الحالة', 
+    {
+      label: language === 'fr' ? 'État' : 'الحالة',
       value: vehicle.category === 'new' ? (language === 'fr' ? 'Neuf' : 'جديد') : (language === 'fr' ? 'Occasion' : 'مستعمل'),
-      icon: CheckCircle 
+      icon: CheckCircle
     },
-    { 
-      label: language === 'fr' ? 'Kilométrage' : 'المسافة المقطوعة', 
+    {
+      label: language === 'fr' ? 'Kilométrage' : 'المسافة المقطوعة',
       value: `${vehicle.mileage?.toLocaleString() || 0} km`,
-      icon: Gauge 
+      icon: Gauge
     },
-    { 
-      label: language === 'fr' ? 'Transmission' : 'ناقل الحركة', 
+    {
+      label: language === 'fr' ? 'Transmission' : 'ناقل الحركة',
       value: vehicle.transmission,
-      icon: Settings 
+      icon: Settings
     },
-    { 
-      label: language === 'fr' ? 'Carburant' : 'الوقود', 
+    {
+      label: language === 'fr' ? 'Carburant' : 'الوقود',
       value: vehicle.fuel,
-      icon: Fuel 
+      icon: Fuel
     },
-    { 
-      label: language === 'fr' ? 'Exterior Color' : 'اللون الخارجي', 
+    {
+      label: language === 'fr' ? 'Exterior Color' : 'اللون الخارجي',
       value: vehicle.exteriorColor || 'N/A',
-      icon: Palette 
+      icon: Palette
     },
-    { 
-      label: language === 'fr' ? 'N° Référence' : 'رقم المرجع', 
+    {
+      label: language === 'fr' ? 'N° Référence' : 'رقم المرجع',
       value: vehicle.reference,
-      icon: Hash 
+      icon: Hash
     },
   ];
 
@@ -163,7 +218,7 @@ const VehicleDetail = () => {
         {/* Breadcrumb */}
         <section className="pt-28 pb-4 bg-background">
           <div className="container-custom">
-            <button 
+            <button
               onClick={() => navigate(-1)}
               className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
             >
@@ -186,7 +241,7 @@ const VehicleDetail = () => {
                     alt={`${vehicle.brand} ${vehicle.model}`}
                     className="w-full h-full object-cover"
                   />
-                  
+
                   {/* Category Badge */}
                   <div className="absolute top-4 left-4">
                     <span className={cn(
@@ -289,7 +344,7 @@ const VehicleDetail = () => {
                   <div className="bg-card border border-border rounded-xl p-6">
                     <div className="space-y-4">
                       {specs.map((spec, index) => (
-                        <div 
+                        <div
                           key={index}
                           className="flex justify-between items-center py-2 border-b border-border last:border-0"
                         >

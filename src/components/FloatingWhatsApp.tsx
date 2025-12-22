@@ -1,9 +1,15 @@
+import { useLocation } from 'react-router-dom';
 import { MessageCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const FloatingWhatsApp = () => {
+  const location = useLocation();
   const phoneNumber = '33748424375';
   const message = encodeURIComponent('Bonjour, je souhaite avoir des informations sur vos services d\'exportation de véhicules.');
+
+  if (location.pathname.startsWith('/admin')) {
+    return null;
+  }
 
   return (
     <a
@@ -23,7 +29,7 @@ const FloatingWhatsApp = () => {
       aria-label="Contact us on WhatsApp"
     >
       <MessageCircle className="w-7 h-7 text-white fill-white" />
-      
+
       {/* Ripple effect */}
       <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-25" />
     </a>

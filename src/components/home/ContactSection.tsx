@@ -10,10 +10,10 @@ const ContactSection = () => {
   const { ref, isInView } = useInView({ threshold: 0.1 });
 
   const contactItems = [
-    { icon: Smartphone, label: t.contact.phone, value: '+33 7 80 78 36 10', href: 'tel:+33780783610' },
+    { icon: Smartphone, label: t.contact.phone, value: '+33 7 48 42 43 75', href: 'tel:+33748424375' },
     { icon: MessageSquare, label: t.contact.whatsapp, value: '+33 7 48 42 43 75', href: 'https://wa.me/33748424375' },
-    { icon: AtSign, label: t.contact.email, value: 'contact@aaautoexport.com', href: 'mailto:contact@aaautoexport.com' },
-    { icon: MapPinned, label: t.contact.address, value: 'Paris, France', href: 'https://maps.app.goo.gl/bmsZZZa5o2wLAzDb8' },
+    { icon: AtSign, label: t.contact.email, value: '2A.autoexport@gmail.com', href: 'mailto:2A.autoexport@gmail.com' },
+    { icon: MapPinned, label: t.contact.address, value: '81 avenue Lénine 93380 pierrefitte sur seine', href: 'https://maps.app.goo.gl/nErQ7C9xdffNwAzC9' },
   ];
 
   return (

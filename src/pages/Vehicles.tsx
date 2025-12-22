@@ -1,11 +1,12 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { SlidersHorizontal, Droplets, CalendarDays, Activity, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Layout from '@/components/layout/Layout';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { vehicles, brands, years, fuels, Vehicle } from '@/data/vehicles';
+import { brands, years, fuels, Vehicle } from '@/data/vehicles';
+import { supabase } from '@/lib/supabase';
 import { cn } from '@/lib/utils';
 
 const Vehicles = () => {
@@ -15,6 +16,48 @@ const Vehicles = () => {
   const [selectedYear, setSelectedYear] = useState<string>('');
   const [selectedFuel, setSelectedFuel] = useState<string>('');
   const [showFilters, setShowFilters] = useState(false);
+  const [vehicles, setVehicles] = useState<Vehicle[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchVehicles = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('vehicles')
+          .select('*');
+
+        if (error) throw error;
+
+        if (data) {
+          // Map DB fields back to frontend interface
+          const mappedVehicles: Vehicle[] = data.map(v => ({
+            id: v.id,
+            brand: v.brand,
+            model: v.model,
+            year: v.year,
+            fuel: v.fuel,
+            price: v.price,
+            image: v.image,
+            category: v.category,
+            mileage: v.mileage,
+            available: v.available,
+            transmission: v.transmission,
+            reference: v.reference,
+            bodyType: v.body_type,
+            exteriorColor: v.exterior_color,
+            status: v.status
+          }));
+          setVehicles(mappedVehicles);
+        }
+      } catch (error) {
+        console.error('Error fetching vehicles:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchVehicles();
+  }, []);
 
   const filteredVehicles = useMemo(() => {
     return vehicles.filter((vehicle) => {
@@ -161,28 +204,37 @@ const Vehicles = () => {
             </div>
 
             {/* Results Count */}
-            <p className="text-muted-foreground mb-6">
-              {filteredVehicles.length} {language === 'fr' ? 'véhicule(s) trouvé(s)' : 'سيارة(ات) موجودة'}
-            </p>
-
-            {/* Vehicles Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredVehicles.map((vehicle, index) => (
-                <VehicleCard key={vehicle.id} vehicle={vehicle} index={index} formatPrice={formatPrice} t={t} />
-              ))}
-            </div>
-
-            {filteredVehicles.length === 0 && (
-              <div className="text-center py-16">
-                <p className="text-muted-foreground text-lg">
-                  {language === 'fr'
-                    ? 'Aucun véhicule ne correspond à vos critères.'
-                    : 'لا توجد سيارات تطابق معاييرك.'}
-                </p>
-                <Button variant="navy" className="mt-4" onClick={clearFilters}>
-                  {language === 'fr' ? 'Effacer les filtres' : 'مسح المرشحات'}
-                </Button>
+            {loading ? (
+              <div className="text-center py-12">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
+                <p className="mt-4 text-muted-foreground">Chargement des véhicules...</p>
               </div>
+            ) : (
+              <>
+                <p className="text-muted-foreground mb-6">
+                  {filteredVehicles.length} {language === 'fr' ? 'véhicule(s) trouvé(s)' : 'سيارة(ات) موجودة'}
+                </p>
+
+                {/* Vehicles Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {filteredVehicles.map((vehicle, index) => (
+                    <VehicleCard key={vehicle.id} vehicle={vehicle} index={index} formatPrice={formatPrice} t={t} />
+                  ))}
+                </div>
+
+                {filteredVehicles.length === 0 && (
+                  <div className="text-center py-16">
+                    <p className="text-muted-foreground text-lg">
+                      {language === 'fr'
+                        ? 'Aucun véhicule ne correspond à vos critères.'
+                        : 'لا توجد سيارات تطابق معاييرك.'}
+                    </p>
+                    <Button variant="navy" className="mt-4" onClick={clearFilters}>
+                      {language === 'fr' ? 'Effacer les filtres' : 'مسح المرشحات'}
+                    </Button>
+                  </div>
+                )}
+              </>
             )}
           </div>
         </section>
@@ -193,11 +245,11 @@ const Vehicles = () => {
 
 const VehicleCard = ({ vehicle, index, formatPrice, t }: { vehicle: Vehicle; index: number; formatPrice: (price: number) => string; t: any }) => {
   const language = t.nav.home === 'Accueil' ? 'fr' : 'ar';
-  
+
   return (
     <Link
       to={`/vehicles/${vehicle.id}`}
-      className="group bg-card rounded-2xl overflow-hidden border border-border hover:border-accent/50 transition-all duration-500 hover:shadow-elevated hover:-translate-y-2 animate-fade-in-up block"
+      className="group bg-card rounded-2xl overflow-hidden border border-border hover:border-accent/50 transition-all duration-500 hover:shadow-elevated hover:-translate-y-2 animate-fade-in-up flex flex-col h-full"
       style={{ animationDelay: `${index * 100}ms` }}
     >
       {/* Image */}
@@ -207,7 +259,7 @@ const VehicleCard = ({ vehicle, index, formatPrice, t }: { vehicle: Vehicle; ind
           alt={`${vehicle.brand} ${vehicle.model}`}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
-        <div className="absolute top-4 left-4">
+        <div className="absolute top-4 left-4 flex gap-2">
           <span className={cn(
             "px-3 py-1 rounded text-xs font-bold uppercase",
             vehicle.category === 'new'
@@ -216,6 +268,20 @@ const VehicleCard = ({ vehicle, index, formatPrice, t }: { vehicle: Vehicle; ind
           )}>
             {vehicle.category === 'new' ? t.vehicles.filter.new : t.vehicles.filter.used}
           </span>
+          {vehicle.status && (
+            <span className={cn(
+              "px-3 py-1 rounded text-xs font-bold uppercase",
+              vehicle.status === 'arriving' ? "bg-blue-500 text-white" :
+                vehicle.status === 'delivered' ? "bg-green-500 text-white" :
+                  vehicle.status === 'sold' ? "bg-red-500 text-white" :
+                    "bg-primary text-primary-foreground"
+            )}>
+              {vehicle.status === 'arriving' ? (language === 'fr' ? 'En Arrivage' : 'في الطريق') :
+                vehicle.status === 'delivered' ? (language === 'fr' ? 'Livré' : 'تم التوصيل') :
+                  vehicle.status === 'sold' ? (language === 'fr' ? 'Vendu' : 'مباع') :
+                    (language === 'fr' ? 'Disponible' : 'متاح')}
+            </span>
+          )}
         </div>
         {/* Price overlay */}
         <div className="absolute bottom-4 left-4">
@@ -226,7 +292,7 @@ const VehicleCard = ({ vehicle, index, formatPrice, t }: { vehicle: Vehicle; ind
       </div>
 
       {/* Content */}
-      <div className="p-6 space-y-4">
+      <div className="p-6 space-y-4 flex flex-col flex-1">
         {/* Category tag */}
         <span className="text-accent font-semibold text-sm uppercase">
           {vehicle.category === 'new' ? 'NEUF' : 'OCCASION'}
@@ -267,7 +333,7 @@ const VehicleCard = ({ vehicle, index, formatPrice, t }: { vehicle: Vehicle; ind
         </div>
 
         {/* CTA */}
-        <Button variant="navy" className="w-full">
+        <Button variant="navy" className="w-full mt-auto">
           {language === 'fr' ? 'Voir les détails' : 'عرض التفاصيل'}
         </Button>
       </div>
