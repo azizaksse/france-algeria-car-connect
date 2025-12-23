@@ -11,7 +11,7 @@ const Services = () => {
   const { t, language } = useLanguage();
   const { ref, isInView } = useInView({ threshold: 0.1 });
 
-  const icons = [ScanSearch, ShoppingBag, ScrollText, Ship, Navigation];
+  const icons = [ScanSearch, ShoppingBag, ScrollText];
 
   const detailedServices = [
     {
@@ -71,44 +71,6 @@ const Services = () => {
         'التخليص الجمركي بالجزائر',
       ],
     },
-    {
-      icon: Ship,
-      titleFr: 'Transport & Export',
-      titleAr: 'النقل والتصدير',
-      descriptionFr: 'Logistique maritime et terrestre vers l\'Algérie.',
-      descriptionAr: 'الخدمات اللوجستية البحرية والبرية إلى الجزائر.',
-      featuresFr: [
-        'Transport sécurisé par conteneur',
-        'Assurance tous risques',
-        'Suivi en temps réel',
-        'Délai de 2 à 4 semaines',
-      ],
-      featuresAr: [
-        'نقل آمن بالحاوية',
-        'تأمين شامل',
-        'تتبع في الوقت الحقيقي',
-        'مدة 2 إلى 4 أسابيع',
-      ],
-    },
-    {
-      icon: Navigation,
-      titleFr: 'Livraison en Algérie',
-      titleAr: 'التسليم في الجزائر',
-      descriptionFr: 'Réception de votre véhicule dans la wilaya de votre choix.',
-      descriptionAr: 'استلام سيارتك في الولاية التي تختارها.',
-      featuresFr: [
-        'Livraison dans toutes les wilayas',
-        'Accompagnement à la réception',
-        'Vérification de l\'état du véhicule',
-        'Remise des documents',
-      ],
-      featuresAr: [
-        'التوصيل في جميع الولايات',
-        'مرافقة عند الاستلام',
-        'التحقق من حالة السيارة',
-        'تسليم الوثائق',
-      ],
-    },
   ];
 
   return (
@@ -149,7 +111,7 @@ const Services = () => {
               {detailedServices.map((service, index) => {
                 const Icon = service.icon;
                 const isEven = index % 2 === 0;
-                
+
                 return (
                   <div
                     key={index}

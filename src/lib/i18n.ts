@@ -25,8 +25,6 @@ export const translations = {
         { title: 'Recherche de véhicule', description: 'Nous trouvons le véhicule idéal selon vos critères et votre budget.' },
         { title: 'Achat en France', description: 'Négociation et achat sécurisé auprès de vendeurs vérifiés.' },
         { title: 'Démarches administratives', description: 'Gestion complète des documents et formalités douanières.' },
-        { title: 'Transport & Export', description: 'Logistique maritime et terrestre vers le Maghreb.' },
-        { title: 'Livraison', description: 'Réception de votre véhicule dans le pays de votre choix.' },
         { title: 'Mécanique Rapide', description: 'Entretien et réparations rapides pour votre véhicule.' },
       ],
     },
@@ -46,12 +44,10 @@ export const translations = {
     },
     howItWorks: {
       title: 'Comment ça marche',
-      subtitle: 'Un processus simple et transparent en 4 étapes',
+      subtitle: 'Un processus simple et transparent en 2 étapes',
       steps: [
         { number: '01', title: 'Choix du véhicule', description: 'Sélectionnez votre véhicule dans notre catalogue ou faites une demande personnalisée.' },
         { number: '02', title: 'Achat en France', description: 'Nous procédons à l\'achat sécurisé du véhicule après votre validation.' },
-        { number: '03', title: 'Documents & Export', description: 'Gestion de toutes les formalités administratives et douanières.' },
-        { number: '04', title: 'Livraison', description: 'Réception de votre véhicule dans votre pays sous 2 à 4 semaines.' },
       ],
     },
     whyUs: {
@@ -123,8 +119,6 @@ export const translations = {
         { title: 'البحث عن السيارة', description: 'نجد السيارة المثالية حسب معاييرك وميزانيتك.' },
         { title: 'الشراء من فرنسا', description: 'تفاوض وشراء آمن من بائعين موثوقين.' },
         { title: 'الإجراءات الإدارية', description: 'إدارة كاملة للوثائق والإجراءات الجمركية.' },
-        { title: 'النقل والتصدير', description: 'الخدمات اللوجستية البحرية والبرية إلى المغرب العربي.' },
-        { title: 'التسليم', description: 'استلام سيارتك في البلد الذي تختاره.' },
         { title: 'ميكانيك سريع', description: 'صيانة وإصلاحات سريعة لسيارتك.' },
       ],
     },
@@ -144,12 +138,10 @@ export const translations = {
     },
     howItWorks: {
       title: 'كيف يعمل',
-      subtitle: 'عملية بسيطة وشفافة في 4 خطوات',
+      subtitle: 'عملية بسيطة وشفافة في 2 خطوات',
       steps: [
         { number: '01', title: 'اختيار السيارة', description: 'اختر سيارتك من الكتالوج أو قدم طلبًا مخصصًا.' },
         { number: '02', title: 'الشراء من فرنسا', description: 'نقوم بشراء السيارة بأمان بعد موافقتك.' },
-        { number: '03', title: 'الوثائق والتصدير', description: 'إدارة جميع الإجراءات الإدارية والجمركية.' },
-        { number: '04', title: 'التسليم', description: 'استلام سيارتك في بلدك خلال 2 إلى 4 أسابيع.' },
       ],
     },
     whyUs: {

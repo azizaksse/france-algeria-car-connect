@@ -37,10 +37,6 @@ const FAQSection = () => {
           question: 'Y a-t-il une garantie sur les véhicules ?',
           answer: 'Les véhicules neufs bénéficient de la garantie constructeur. Pour les occasions, nous fournissons un rapport détaillé de l\'état du véhicule et pouvons proposer une extension de garantie.',
         },
-        {
-          question: 'Dans quelles wilayas livrez-vous ?',
-          answer: 'Nous livrons dans toutes les wilayas d\'Algérie. Le véhicule arrive au port d\'Alger et peut être acheminé vers votre wilaya selon vos préférences.',
-        },
       ],
     },
     ar: {
@@ -66,10 +62,6 @@ const FAQSection = () => {
         {
           question: 'هل هناك ضمان على السيارات؟',
           answer: 'تستفيد السيارات الجديدة من ضمان الشركة المصنعة. بالنسبة للسيارات المستعملة، نقدم تقريرًا مفصلاً عن حالة السيارة ويمكننا تقديم تمديد للضمان.',
-        },
-        {
-          question: 'في أي ولايات تقومون بالتوصيل؟',
-          answer: 'نقوم بالتوصيل إلى جميع ولايات الجزائر. تصل السيارة إلى ميناء الجزائر ويمكن نقلها إلى ولايتك حسب تفضيلاتك.',
         },
       ],
     },

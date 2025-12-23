@@ -137,8 +137,8 @@ const About = () => {
               <div className="relative">
                 <div className="absolute -inset-4 bg-accent/10 rounded-3xl blur-2xl" />
                 <img
-                  src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=800&q=80"
-                  alt="Car showroom"
+                  src="/why us.png"
+                  alt="Notre Histoire"
                   className="relative rounded-2xl shadow-glass w-full object-cover aspect-[4/3]"
                 />
               </div>
