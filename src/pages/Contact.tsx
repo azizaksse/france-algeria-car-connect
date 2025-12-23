@@ -41,9 +41,8 @@ const Contact = () => {
   ];
 
   const hours = [
-    { day: language === 'fr' ? 'Lundi - Vendredi' : 'الإثنين - الجمعة', time: '09:00 - 18:00' },
-    { day: language === 'fr' ? 'Samedi' : 'السبت', time: '10:00 - 16:00' },
-    { day: language === 'fr' ? 'Dimanche' : 'الأحد', time: language === 'fr' ? 'Fermé' : 'مغلق' },
+    { day: language === 'fr' ? 'Lundi - Samedi' : 'الإثنين - السبت', time: '10:00 - 19:00' },
+    { day: language === 'fr' ? 'Dimanche' : 'الأحد', time: '10:00 - 18:00' },
   ];
 
   return (
