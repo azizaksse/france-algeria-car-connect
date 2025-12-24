@@ -41,7 +41,6 @@ const About = () => {
         { value: 'Expertise', label: 'Reconnue' },
         { value: '500+', label: 'Véhicules exportés' },
         { value: '100%', label: 'Clients satisfaits' },
-        { value: '48', label: 'Wilayas desservies' },
       ],
     },
     ar: {
@@ -72,7 +71,6 @@ const About = () => {
         { value: 'خبرة', label: 'معترف بها' },
         { value: '500+', label: 'سيارة مصدرة' },
         { value: '100%', label: 'عملاء راضون' },
-        { value: '48', label: 'ولاية مخدومة' },
       ],
     },
   };
@@ -84,8 +82,8 @@ const About = () => {
       <SEO
         title={language === 'fr' ? 'À Propos | AA AUTO EXPORT' : 'من نحن | AA AUTO EXPORT'}
         description={language === 'fr'
-          ? 'Découvrez AA AUTO EXPORT, votre partenaire de confiance pour l\'exportation de véhicules de France vers l\'Algérie depuis plus de 10 ans.'
-          : 'اكتشف AA AUTO EXPORT، شريكك الموثوق لتصدير السيارات من فرنسا إلى الجزائر منذ أكثر من 10 سنوات.'
+          ? 'Découvrez AA AUTO EXPORT, votre partenaire de confiance pour l\'exportation de véhicules de France vers l\'Algérie.'
+          : 'اكتشف AA AUTO EXPORT، شريكك الموثوق لتصدير السيارات من فرنسا إلى الجزائر.'
         }
       />
 

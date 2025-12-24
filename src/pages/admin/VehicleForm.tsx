@@ -312,6 +312,47 @@ const VehicleForm = () => {
                                 required
                             />
                         </div>
+
+                        <div className="space-y-2">
+                            <Label>Catégorie</Label>
+                            <Select value={formData.category} onValueChange={(v) => handleChange('category', v)}>
+                                <SelectTrigger>
+                                    <SelectValue />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem value="new">Neuf</SelectItem>
+                                    <SelectItem value="used">Occasion</SelectItem>
+                                </SelectContent>
+                            </Select>
+                        </div>
+
+                        <div className="space-y-2">
+                            <Label>Type de carrosserie</Label>
+                            <Select value={formData.bodyType} onValueChange={(v) => handleChange('bodyType', v)}>
+                                <SelectTrigger>
+                                    <SelectValue />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem value="Berline">Berline</SelectItem>
+                                    <SelectItem value="SUV">SUV</SelectItem>
+                                    <SelectItem value="Citadine">Citadine</SelectItem>
+                                    <SelectItem value="Break">Break</SelectItem>
+                                    <SelectItem value="Coupé">Coupé</SelectItem>
+                                    <SelectItem value="Monospace">Monospace</SelectItem>
+                                    <SelectItem value="Pick-up">Pick-up</SelectItem>
+                                    <SelectItem value="Fourgon">Fourgon</SelectItem>
+                                    <SelectItem value="Combi">Combi</SelectItem>
+                                </SelectContent>
+                            </Select>
+                        </div>
+
+                        <div className="space-y-2">
+                            <Label>Couleur extérieure</Label>
+                            <Input
+                                value={formData.exteriorColor}
+                                onChange={(e) => handleChange('exteriorColor', e.target.value)}
+                            />
+                        </div>
                     </div>
 
                     {/* Details */}

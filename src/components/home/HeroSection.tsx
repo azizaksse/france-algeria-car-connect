@@ -10,7 +10,6 @@ const HeroSection = () => {
   const { ref, isInView } = useInView({ threshold: 0.1 });
 
   const stats = [
-    { icon: ShieldCheck, value: '10+', label: language === 'fr' ? 'Ans d\'expertise' : 'سنوات من الخبرة' },
     { icon: Zap, value: '500+', label: language === 'fr' ? 'Véhicules exportés' : 'سيارة مصدرة' },
     { icon: Sparkles, value: '100%', label: language === 'fr' ? 'Clients satisfaits' : 'عملاء راضون' },
   ];

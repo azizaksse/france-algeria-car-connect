@@ -34,6 +34,7 @@ const Dashboard = () => {
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
     const [statusFilter, setStatusFilter] = useState<string>('all');
+    const [categoryFilter, setCategoryFilter] = useState<string>('all');
 
     useEffect(() => {
         checkUser();
@@ -135,8 +136,9 @@ const Dashboard = () => {
             v.reference.toLowerCase().includes(searchTerm.toLowerCase());
 
         const matchesStatus = statusFilter === 'all' || v.status === statusFilter;
+        const matchesCategory = categoryFilter === 'all' || v.category === categoryFilter;
 
-        return matchesSearch && matchesStatus;
+        return matchesSearch && matchesStatus && matchesCategory;
     });
 
     // Statistics
@@ -240,10 +242,25 @@ const Dashboard = () => {
                                 </div>
                             </SelectTrigger>
                             <SelectContent>
-                                <SelectItem value="all">Tous</SelectItem>
+                                <SelectItem value="all">Tous les status</SelectItem>
                                 <SelectItem value="available">Disponible</SelectItem>
                                 <SelectItem value="arriving">En arrivage</SelectItem>
                                 <SelectItem value="sold">Vendu</SelectItem>
+                            </SelectContent>
+                        </Select>
+                    </div>
+                    <div className="w-full md:w-48">
+                        <Select value={categoryFilter} onValueChange={setCategoryFilter}>
+                            <SelectTrigger>
+                                <div className="flex items-center gap-2">
+                                    <Car className="w-4 h-4" />
+                                    <SelectValue placeholder="Catégorie" />
+                                </div>
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="all">Toutes catégories</SelectItem>
+                                <SelectItem value="new">Neuf</SelectItem>
+                                <SelectItem value="used">Occasion</SelectItem>
                             </SelectContent>
                         </Select>
                     </div>
@@ -257,6 +274,7 @@ const Dashboard = () => {
                                 <TableHead className="w-[100px]">Image</TableHead>
                                 <TableHead>Véhicule</TableHead>
                                 <TableHead>Prix</TableHead>
+                                <TableHead>Catégorie</TableHead>
                                 <TableHead>Status</TableHead>
                                 <TableHead>Référence</TableHead>
                                 <TableHead className="text-right">Actions</TableHead>
@@ -292,6 +310,14 @@ const Dashboard = () => {
                                             <div className="text-sm text-muted-foreground">{vehicle.year} • {vehicle.fuel} • {vehicle.mileage?.toLocaleString()} km</div>
                                         </TableCell>
                                         <TableCell className="font-medium">{vehicle.price.toLocaleString()} €</TableCell>
+                                        <TableCell>
+                                            <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border ${vehicle.category === 'new'
+                                                ? 'bg-amber-50 text-amber-700 border-amber-200'
+                                                : 'bg-slate-50 text-slate-700 border-slate-200'
+                                                }`}>
+                                                {vehicle.category === 'new' ? 'Neuf' : 'Occasion'}
+                                            </span>
+                                        </TableCell>
                                         <TableCell>
                                             <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border ${vehicle.status === 'available'
                                                 ? 'bg-green-50 text-green-700 border-green-200'

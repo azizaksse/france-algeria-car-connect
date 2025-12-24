@@ -10,16 +10,6 @@ import Layout from '@/components/layout/Layout';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { cn } from '@/lib/utils';
 
-const wilayas = [
-  'Adrar', 'Chlef', 'Laghouat', 'Oum El Bouaghi', 'Batna', 'Béjaïa', 'Biskra',
-  'Béchar', 'Blida', 'Bouira', 'Tamanrasset', 'Tébessa', 'Tlemcen', 'Tiaret',
-  'Tizi Ouzou', 'Alger', 'Djelfa', 'Jijel', 'Sétif', 'Saïda', 'Skikda',
-  'Sidi Bel Abbès', 'Annaba', 'Guelma', 'Constantine', 'Médéa', 'Mostaganem',
-  'M\'Sila', 'Mascara', 'Ouargla', 'Oran', 'El Bayadh', 'Illizi', 'Bordj Bou Arréridj',
-  'Boumerdès', 'El Tarf', 'Tindouf', 'Tissemsilt', 'El Oued', 'Khenchela',
-  'Souk Ahras', 'Tipaza', 'Mila', 'Aïn Defla', 'Naâma', 'Aïn Témouchent',
-  'Ghardaïa', 'Relizane'
-];
 
 const Request = () => {
   const { t, language } = useLanguage();
@@ -34,7 +24,6 @@ const Request = () => {
     email: '',
     vehicle: '',
     budget: '',
-    wilaya: '',
     message: '',
   });
 
@@ -196,21 +185,6 @@ const Request = () => {
                     />
                   </div>
 
-                  {/* Wilaya */}
-                  <div className="space-y-2 md:col-span-2">
-                    <label className="text-sm font-medium text-foreground">{t.form.wilaya}</label>
-                    <select
-                      name="wilaya"
-                      value={formData.wilaya}
-                      onChange={handleChange}
-                      className="w-full h-12 px-4 bg-background border border-input rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-accent"
-                    >
-                      <option value="">{language === 'fr' ? 'Sélectionner une wilaya' : 'اختر ولاية'}</option>
-                      {wilayas.map((wilaya) => (
-                        <option key={wilaya} value={wilaya}>{wilaya}</option>
-                      ))}
-                    </select>
-                  </div>
 
                   {/* Message */}
                   <div className="space-y-2 md:col-span-2">
