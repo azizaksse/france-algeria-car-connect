@@ -80,7 +80,9 @@ const Navbar = () => {
               <span className="text-sm font-medium">{language === 'fr' ? 'العربية' : 'Français'}</span>
             </button>
             <Button variant="accent" size="default" className="rounded-full px-6" asChild>
-              <Link to="/request">{t.nav.requestQuote}</Link>
+              <a href="https://wa.me/33748424375" target="_blank" rel="noopener noreferrer">
+                {t.nav.requestQuote}
+              </a>
             </Button>
           </div>
 
@@ -125,9 +127,9 @@ const Navbar = () => {
                 <span className="text-sm font-medium">{language === 'fr' ? 'العربية' : 'Français'}</span>
               </button>
               <Button variant="accent" size="lg" className="w-full rounded-xl" asChild>
-                <Link to="/request" onClick={() => setIsOpen(false)}>
+                <a href="https://wa.me/33748424375" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
                   {t.nav.requestQuote}
-                </Link>
+                </a>
               </Button>
             </div>
           </div>

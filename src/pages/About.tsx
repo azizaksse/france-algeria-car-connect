@@ -112,7 +112,7 @@ const About = () => {
                 key={index}
                 className="text-center p-6 bg-primary-foreground/5 backdrop-blur-sm rounded-2xl border border-primary-foreground/10"
               >
-                <div className="font-heading font-bold text-4xl text-accent mb-2">
+                <div className="font-heading font-bold text-3xl md:text-4xl text-accent mb-2">
                   {stat.value}
                 </div>
                 <div className="text-primary-foreground/60 text-sm">

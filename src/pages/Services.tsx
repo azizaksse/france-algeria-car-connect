@@ -165,10 +165,10 @@ const Services = () => {
             {/* CTA */}
             <div className="mt-20 text-center">
               <Button variant="accent" size="xl" asChild>
-                <Link to="/request" className="group">
+                <a href="https://wa.me/33748424375" target="_blank" rel="noopener noreferrer" className="group">
                   {t.nav.requestQuote}
                   <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-                </Link>
+                </a>
               </Button>
             </div>
           </div>

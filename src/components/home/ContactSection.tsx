@@ -69,10 +69,10 @@ const ContactSection = () => {
               {t.form.subtitle}
             </p>
             <Button variant="hero" size="xl" className="w-full" asChild>
-              <Link to="/request" className="group">
+              <a href="https://wa.me/33748424375" target="_blank" rel="noopener noreferrer" className="group">
                 {t.nav.requestQuote}
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-              </Link>
+              </a>
             </Button>
           </div>
         </div>

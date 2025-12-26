@@ -43,11 +43,33 @@ const Request = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    // Construct WhatsApp message
+    const message = encodeURIComponent(
+      language === 'fr'
+        ? `Nouvelle demande de devis:\n\n` +
+        `Nom: ${formData.name}\n` +
+        `Téléphone: ${formData.phone}\n` +
+        `Email: ${formData.email}\n` +
+        `Véhicule: ${formData.vehicle || 'Non spécifié'}\n` +
+        `Budget: ${formData.budget || 'Non spécifié'}\n` +
+        `Message: ${formData.message || 'Pas de message'}`
+        : `طلب عرض أسعار جديد:\n\n` +
+        `الاسم: ${formData.name}\n` +
+        `الهاتف: ${formData.phone}\n` +
+        `البريد الإلكتروني: ${formData.email}\n` +
+        `السيارة: ${formData.vehicle || 'غير محدد'}\n` +
+        `الميزانية: ${formData.budget || 'غير محدد'}\n` +
+        `الرسالة: ${formData.message || 'لا توجد رسالة'}`
+    );
+
+    // Simulate form submission delay
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     setIsSubmitting(false);
     setIsSuccess(true);
+
+    // Redirect to WhatsApp
+    window.open(`https://wa.me/33748424375?text=${message}`, '_blank');
 
     toast({
       title: language === 'fr' ? 'Demande envoyée !' : 'تم إرسال الطلب!',

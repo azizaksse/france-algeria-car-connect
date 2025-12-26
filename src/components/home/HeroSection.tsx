@@ -69,7 +69,9 @@ const HeroSection = () => {
                 </Link>
               </Button>
               <Button variant="hero-outline" size="xl" asChild>
-                <Link to="/request">{t.hero.cta2}</Link>
+                <a href="https://wa.me/33748424375" target="_blank" rel="noopener noreferrer">
+                  {t.hero.cta2}
+                </a>
               </Button>
             </div>
 
