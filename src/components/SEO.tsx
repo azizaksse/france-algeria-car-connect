@@ -23,10 +23,10 @@ interface SEOProps {
   lang?: Language;
 }
 
-const SEO = ({ 
-  title, 
-  description, 
-  image = '/og-image.jpg',
+const SEO = ({
+  title,
+  description,
+  image = '/logo-transparent.png',
   url = 'https://aaautoexport.com',
   type = 'website',
   lang
