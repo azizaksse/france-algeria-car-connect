@@ -16,6 +16,7 @@ create table vehicles (
   reference text,
   body_type text,
   exterior_color text,
+  motorisation text,
   status text default 'available'
 );
 

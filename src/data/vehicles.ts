@@ -15,6 +15,7 @@ export interface Vehicle {
   reference: string;
   bodyType?: 'Berline' | 'SUV' | 'Citadine' | 'Break' | 'Coupé' | 'Monospace' | 'Pick-up' | 'Fourgon' | 'Combi';
   exteriorColor?: string;
+  motorisation?: string;
   status?: 'available' | 'arriving' | 'delivered' | 'sold';
 }
 

@@ -61,6 +61,7 @@ const VehicleDetail = () => {
             reference: data.reference,
             bodyType: data.body_type,
             exteriorColor: data.exterior_color,
+            motorisation: data.motorisation,
             status: data.status
           };
           setVehicle(mappedVehicle);
@@ -179,6 +180,11 @@ const VehicleDetail = () => {
       label: language === 'fr' ? 'Carburant' : 'الوقود',
       value: vehicle.fuel,
       icon: Fuel
+    },
+    {
+      label: language === 'fr' ? 'Motorisation' : 'المحرك',
+      value: vehicle.motorisation || 'N/A',
+      icon: Settings
     },
     {
       label: language === 'fr' ? 'Exterior Color' : 'اللون الخارجي',

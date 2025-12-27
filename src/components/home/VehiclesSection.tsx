@@ -40,6 +40,7 @@ const VehiclesSection = () => {
             reference: v.reference,
             bodyType: v.body_type,
             exteriorColor: v.exterior_color,
+            motorisation: v.motorisation,
             status: v.status
           }));
           setDisplayVehicles(mappedVehicles);

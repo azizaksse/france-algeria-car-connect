@@ -45,6 +45,7 @@ const Vehicles = () => {
             reference: v.reference,
             bodyType: v.body_type,
             exteriorColor: v.exterior_color,
+            motorisation: v.motorisation,
             status: v.status
           }));
           setVehicles(mappedVehicles);
@@ -325,6 +326,10 @@ const VehicleCard = ({ vehicle, index, formatPrice, t }: { vehicle: Vehicle; ind
           <div className="flex justify-between">
             <span className="text-muted-foreground">{language === 'fr' ? 'Carburant' : 'الوقود'}</span>
             <span className="font-semibold text-foreground">{vehicle.fuel}</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="text-muted-foreground">{language === 'fr' ? 'Motorisation' : 'المحرك'}</span>
+            <span className="font-semibold text-foreground">{vehicle.motorisation || 'N/A'}</span>
           </div>
           <div className="flex justify-between">
             <span className="text-muted-foreground">{language === 'fr' ? 'Transmission' : 'ناقل الحركة'}</span>

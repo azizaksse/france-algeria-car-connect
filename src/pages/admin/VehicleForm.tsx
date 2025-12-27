@@ -32,6 +32,7 @@ const VehicleForm = () => {
         reference: '',
         bodyType: 'Berline',
         exteriorColor: '',
+        motorisation: '',
         status: 'available'
     });
 
@@ -67,6 +68,7 @@ const VehicleForm = () => {
                     reference: data.reference,
                     bodyType: data.body_type,
                     exteriorColor: data.exterior_color,
+                    motorisation: data.motorisation,
                     status: data.status
                 });
             }
@@ -204,6 +206,7 @@ const VehicleForm = () => {
                 reference: formData.reference,
                 body_type: formData.bodyType,
                 exterior_color: formData.exteriorColor,
+                motorisation: formData.motorisation,
                 status: formData.status
             };
 
@@ -351,6 +354,15 @@ const VehicleForm = () => {
                             <Input
                                 value={formData.exteriorColor}
                                 onChange={(e) => handleChange('exteriorColor', e.target.value)}
+                            />
+                        </div>
+
+                        <div className="space-y-2">
+                            <Label>Motorisation</Label>
+                            <Input
+                                value={formData.motorisation}
+                                onChange={(e) => handleChange('motorisation', e.target.value)}
+                                placeholder="ex: 2.0 TDI 150CH"
                             />
                         </div>
                     </div>
