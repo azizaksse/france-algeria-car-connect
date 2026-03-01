@@ -54,6 +54,7 @@ const VehicleDetail = () => {
             fuel: data.fuel,
             price: data.price,
             image: data.image,
+            images: data.images || [],
             category: data.category,
             mileage: data.mileage,
             available: data.available,
@@ -105,12 +106,10 @@ const VehicleDetail = () => {
     );
   }
 
-  // Mock gallery images (in real app, this would come from vehicle data)
+  // Principal image first, then gallery images
   const galleryImages = [
     vehicle.image,
-    vehicle.image.replace('w=800', 'w=801'),
-    vehicle.image.replace('w=800', 'w=802'),
-    vehicle.image.replace('w=800', 'w=803'),
+    ...(vehicle.images && vehicle.images.length > 0 ? vehicle.images : []),
   ];
 
   const formatPrice = (price: number) => {

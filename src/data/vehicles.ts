@@ -8,6 +8,7 @@ export interface Vehicle {
   fuel: 'Essence' | 'Diesel' | 'Hybride' | 'Électrique';
   price: number;
   image: string;
+  images?: string[];
   category: 'new' | 'used';
   mileage?: number;
   available: boolean;
